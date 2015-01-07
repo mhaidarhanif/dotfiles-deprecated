@@ -1,5 +1,7 @@
-thoughtbot dotfiles
-===================
+M Haidar Hanif dotfiles
+=======================
+
+Based on [thoughtbot dotfiles](https://github.com/thoughtbot/dotfiles)
 
 Requirements
 ------------
@@ -13,14 +15,9 @@ Install
 
 Clone onto your laptop:
 
-    git clone git://github.com/thoughtbot/dotfiles.git
+    git clone git://github.com/mhaidarh/dotfiles.git
 
-(Or, [fork and keep your fork
-updated](http://robots.thoughtbot.com/keeping-a-github-fork-updated)).
-
-Install [rcm](https://github.com/thoughtbot/rcm):
-
-    brew bundle dotfiles/Brewfile
+Install [rcm](https://github.com/thoughtbot/rcm)
 
 Install:
 
@@ -60,8 +57,8 @@ Your `~/.gitconfig.local` might look like this:
     [pretty]
       colored = format:%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset
     [user]
-      name = Dan Croak
-      email = dan@thoughtbot.com
+      name = First Last
+      email = name@domain.com
 
 Your `~/.zshrc.local` might look like this:
 
@@ -76,43 +73,11 @@ Your `~/.vimrc.bundles.local` might look like this:
 What's in it?
 -------------
 
-[vim](http://www.vim.org/) configuration:
+[vim](http://www.vim.org/) configuration
 
-* [Ctrl-P](https://github.com/kien/ctrlp.vim) for fuzzy file/buffer/tag finding.
-* [Rails.vim](https://github.com/tpope/vim-rails) for enhanced navigation of
-  Rails file structure via `gf` and `:A` (alternate), `:Rextract` partials,
-  `:Rinvert` migrations, etc.
-* Run [RSpec](https://www.relishapp.com/rspec) specs from vim.
-* Set `<leader>` to a single space.
-* Switch between the last two files with space-space.
-* Syntax highlighting for CoffeeScript, Textile, Cucumber, Haml, Markdown, and
-  HTML.
-* Use [Ag](https://github.com/ggreer/the_silver_searcher) instead of Grep when
-  available.
-* Use [Exuberant Ctags](http://ctags.sourceforge.net/) for tab completion.
-* Use [GitHub color scheme](https://github.com/croaky/vim-colors-github).
-* Use [Vundle](https://github.com/gmarik/vundle) to manage plugins.
+[tmux](http://robots.thoughtbot.com/a-tmux-crash-course) configuration
 
-[tmux](http://robots.thoughtbot.com/a-tmux-crash-course)
-configuration:
-
-* Improve color resolution.
-* Remove administrative debris (session name, hostname, time) in status bar.
-* Set prefix to `Ctrl+a` (like GNU screen).
-* Soften status bar color from harsh green to light gray.
-
-[git](http://git-scm.com/) configuration:
-
-* Adds a `create-branch` alias to create feature branches.
-* Adds a `delete-branch` alias to delete feature branches.
-* Adds a `merge-branch` alias to merge feature branches into master.
-* Adds an `up` alias to fetch and rebase `origin/master` into the feature
-  branch. Use `git up -i` for interactive rebases.
-
-[Ruby](https://www.ruby-lang.org/en/) configuration:
-
-* Add trusted binstubs to the `PATH`.
-* Load rbenv into the shell, adding shims onto our `PATH`.
+[git](http://git-scm.com/) configuration
 
 Shell aliases and scripts:
 
@@ -125,6 +90,8 @@ Shell aliases and scripts:
 * `rk` for `rake`.
 * `tat` to attach to tmux session named the same as the current directory.
 * `v` for `$VISUAL`.
+
+and much more!
 
 Credits
 -------
@@ -141,3 +108,4 @@ The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 
 Dotfiles is © 2009-2014 thoughtbot, inc. It is free software and may be
 redistributed under the terms specified in the [LICENSE](LICENSE) file.
+
