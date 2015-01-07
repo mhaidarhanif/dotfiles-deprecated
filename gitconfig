@@ -1,0 +1,100 @@
+# mhaidarh's .gitconfig
+# https://gist.github.com/mhaidarh/5170182
+
+[user]
+    name = M Haidar Hanif
+    email = mhaidarhanif@gmail.com
+    editor = vim
+	signingkey = 60DEF204
+[core]
+    excludesfile = ~/.gitignore
+    #autocrlf = input
+    #safecrlf = true
+    quotepath = false
+    pager = less -r
+[credential]
+    helper = cache --timeout=36000
+[alias]
+    alias     = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    switch    = !legit switch \"$@\"
+    branches  = !legit branches
+    sprout    = !legit sprout \"$@\"
+    unpublish = !legit unpublish \"$@\"
+    harvest   = !legit harvest \"$@\"
+    sync      = !legit sync \"$@\"
+    publish   = !legit publish \"$@\"
+    graft     = !legit graft \"$@\"
+    master    = checkout master
+    develop   = checkout develop
+    create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+    delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+    merge-branch = !git checkout master && git merge @{-1}
+    a  = !git add . && git status
+    au = !git add -u && git status
+    aa = !git add . && git add -u && git status
+    al = add --all
+    ap = add --patch
+    b  = branch
+    cl = clone --depth=1 --recursive
+    clone = cl
+    c  = commit
+    ca = commit --amend
+    ci = commit -v
+    cm = commit -m
+    co = checkout
+    cb = checkout -b
+    cs = commit -S
+    d  = log --diff-filter=D -- $1
+    diff = diff --color-words
+    h  = lg
+    hist = h
+    history = h
+    l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Cireset'
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ll = log --stat --abbrev-commit --show-signature
+    lo = log --oneline --graph
+    p  = push
+    pu = push -u
+    pr = !hub pull-request
+    r  = !git ls-files -z --deleted | xargs -0 git rm
+    re = reset HEAD
+    remot = remote
+    s  = status
+		st = status
+		size = count-objects -v
+    up = !git fetch origin && git rebase origin/master
+    amend  = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+    ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+[color]
+    diff   = auto
+    status = auto
+    branch = auto
+    ui     = auto # covers diff = true, status = auto, branch = auto
+    interactive = auto
+[push]
+    default = current
+[merge]
+    ff = only
+[include]
+    path = .gitconfig.local
+[commit]
+    template = ~/.gitmessage
+[fetch]
+    prune = true
+[url "https://"]
+    insteadOf = git://
+
+# http://git-scm.com
+# http://git-legit.org
+# https://github.com/github/gitignore
+# http://gitimmersion.com
+# http://oli.jp/2012/git-powerup
+# http://rails.wincent.com/wiki/Git_quickstart
+# http://blog.blindgaenger.net/advanced_git_aliases.html
+# http://theint.ro/blogs/outro/4649682-git-for-busy-people-see-what-youre-doing
+# http://www.jukie.net/bart/blog/pimping-out-git-log
+# http://nvie.com/posts/a-successful-git-branching-model/
+# http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/
+
+[http]
+	sslverify = false

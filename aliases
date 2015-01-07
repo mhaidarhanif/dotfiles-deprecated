@@ -1,0 +1,147 @@
+# Unix
+alias sudo="sudo "
+alias s="source"
+alias p="pwd"
+alias tlf="tail -f"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias ...="../.."
+alias l="ls -CF"
+alias la='ls -A'
+alias ll="ls -AlFh"
+alias -g G="| grep"
+alias -g M="| less"
+alias -g L="| wc -l"
+alias -g ONE="| awk '{ print \$1}'"
+alias j="autojump"
+alias c="cd"
+alias u="umount"
+alias wc="wc -l"
+alias h="history"
+alias to="touch"
+
+# Network
+alias ping="ping -c 2"
+
+# Edit
+alias e="$EDITOR"
+alias v="$VISUAL"
+alias ge="gedit"
+
+alias vd="v dl"
+
+# File
+alias cat="cat -b"
+alias cp="rsync -ahPvW"
+# alias cp="cp -au"
+# alias cp="gcp"
+alias rm="trash"
+alias rmv="/bin/rm"
+alias t="trash"
+
+# Search
+# alias f="find . -print | grep -i"
+alias f="find . -print | grep -i"
+alias gi="grep -inR"
+alias ag="ag -i"
+
+# Programming
+alias py="python"
+alias no="node"
+
+# Command Line
+alias betty="$HOME/.dotfiles/betty/main.rb"
+
+# File
+alias na="nautilus"
+alias th="thunar"
+
+# curl
+alias curlo="curl -O -J -L"
+
+# wget
+alias wg="wget"
+alias wgc="wget -c"
+alias wgi="wget -c -i"
+alias wgo="wget -c -O"
+
+# git
+alias g="git"
+alias ga='git add'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias ghp="git push github master; git checkout gh-pages; git rebase master; git push github gh-pages; git checkout master"
+alias gl='git pull'
+alias gp='git push'
+alias gst='git status -sb'
+alias gsd='git svn dcommit'
+alias gsr='git svn rebase'
+alias gs='git stash'
+alias gsa='git stash apply'
+alias gr='git stash && git svn rebase && git svn dcommit && git stash pop' # git refresh
+alias gd='git diff | $GIT_EDITOR -'
+alias gmv='git mv'
+alias gho='$(git remote -v 2> /dev/null | grep github | sed -e "s/.*git\:\/\/\([a-z]\.\)*/\1/" -e "s/\.git$//g" -e "s/.*@\(.*\)$/\1/g" | tr ":" "/" | tr -d "\011" | sed -e "s/^/open http:\/\//g")'
+
+# hg
+alias hgst='hg status'
+alias hgd='hg diff | $GIT_EDITOR -'
+alias hgo='hg outgoing'
+
+# xsel
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
+# apt-get
+alias add="sudo add-apt-repository"
+alias purge="sudo ppa-purge"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
+alias install="sudo apt-get install -y --force-yes"
+alias installf="sudo apt-get install -f --fix-missing"
+alias remove="sudo apt-get remove"
+alias autoremove="sudo apt-get autoremove"
+alias uninstall="sudo apt-get autoremove"
+alias upg="update; upgrade -y"
+alias hold="sudo apt-mark hold"
+alias search="sudo apt-cache search"
+
+# package
+alias dp="sudo dpkg -i"
+alias dpr="sudo dpkg -r"
+PIP_DOWNLOAD_CACHE="~/.pipcache"
+PIP_USE_MIRRORS=true
+
+# server
+alias server="http-server"
+
+# Meteor
+alias m="meteor"
+alias mu="meteor update"
+
+# Bundler
+# alias b="bundle"
+
+# Tests and Specs
+# alias t="ruby -I test"
+# alias cuc="bundle exec cucumber"
+
+# Rails
+# alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+# alias m="migrate"
+# alias rk="rake"
+# alias s="rspec"
+# alias z="zeus"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
+
+mkc() {
+  md "$@" && cd "$@"
+}
+
+mvc() {
+  mv "$@" && cd "$@"
+}
+

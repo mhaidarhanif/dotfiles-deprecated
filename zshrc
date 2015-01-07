@@ -1,0 +1,342 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.dotfiles/zsh/
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+# ZSH_THEME="robbyrussell"
+TERM=xterm-256color
+# Base16 Shell
+# BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-default.dark.sh"
+# [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to disable command auto-correction.
+# DISABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(
+  autojump
+  bower
+  bundler
+  brew
+  command-not-found
+  # common-aliases
+  # debian
+  dircycle
+  gas
+  gem
+  # git
+  # gitfast
+  # git-extras
+  # git-flow-avh
+  # git-flow-completion
+  # git-hubflow
+  # jsontools
+  npm
+  zsh-syntax-highlighting
+  zsh-history-substring-search
+)
+
+# autojump settings
+# Enable ZSH Tab Completion
+autoload -U compinit && compinit
+
+# Syntax highlighting config
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(
+  main
+  brackets
+  pattern
+)
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export PATH=".git/safe/../../bin:/home/mhaidarh/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# ---
+
+# set title automatically
+case $TERM in
+  xterm*)
+    precmd () {print -Pn "\e]0;%.\a"}
+    ;;
+esac
+
+# ----------
+# Prompt
+# ----------
+
+# ---
+# Git
+# ---
+
+export GIT_SUBREPO_DIR="$HOME/.dotfiles/git-subrepo"
+fpath=("$GIT_SUBREPO_DIR/share/zsh-completion" $fpath)
+source $GIT_SUBREPO_DIR/init
+
+export GIT_HUB_DIR="$HOME/.dotfiles/git-hub"
+fpath=("$GIT_HUB_DIR/share/zsh-completion" $fpath)
+source $GIT_HUB_DIR/init
+
+# modify the prompt to contain git branch name if applicable
+git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null)
+  if [[ -n $ref ]]; then
+    echo " %{$fg_bold[green]%}${ref#refs/heads/}%{$reset_color%}"
+  fi
+}
+
+setopt promptsubst
+export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
+
+function prompt_char {
+  git branch >/dev/null 2>/dev/null && echo '±' && return
+  hg root >/dev/null 2>/dev/null && echo '☿' && return
+  echo '$'
+}
+
+function git_branch {
+  BRANCH="$(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3)"
+  if ! test -z $BRANCH; then
+    COL="%{$fg[green]%}" # Everything's fine
+    [[ $(git log origin/master..HEAD 2> /dev/null ) != "" ]] && COL="%{$fg[blue]%}" # We have changes to push
+    [[ $(git status --porcelain 2> /dev/null) != "" ]] && COL="%{$fg[red]%}" # We have uncommited changes
+    echo "$COL$BRANCH"
+  fi
+}
+
+# load our own completion functions
+fpath=(~/.zsh/completion $fpath)
+
+# completion
+autoload -U compinit
+compinit
+
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
+# makes color constants available
+autoload -U colors
+colors
+
+# enable colored output from ls, etc
+export CLICOLOR=1
+
+# history settings
+setopt hist_ignore_all_dups inc_append_history
+HISTFILE=~/.zhistory
+HISTSIZE=4096
+SAVEHIST=4096
+
+# awesome cd movements from zshkit
+setopt autocd autopushd pushdminus pushdsilent pushdtohome cdablevars
+DIRSTACKSIZE=5
+
+# Enable extended globbing
+setopt extendedglob
+
+# Allow [ or ] whereever you want
+unsetopt nomatch
+
+# vi mode
+# bindkey -v
+# bindkey "^F" vi-cmd-mode
+# bindkey jj vi-cmd-mode
+
+# handy keybindings
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^R" history-incremental-search-backward
+bindkey "^P" history-search-backward
+bindkey "^Y" accept-and-hold
+bindkey "^N" insert-last-word
+bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+
+# search keybindings
+# ------------------
+
+# bind UP and DOWN arrow keys
+# zmodload zsh/terminfo
+# bindkey '^[OA' history-substring-search-up
+# bindkey '^[OB' history-substring-search-down
+
+# bind P and N for EMACS mode
+# bindkey -M emacs '^P' history-substring-search-up
+# bindkey -M emacs '^N' history-substring-search-down
+
+# bind k and j for VI mode
+# bindkey -M vicmd 'k' history-substring-search-up
+# bindkey -M vicmd 'j' history-substring-search-down
+
+bindkey '^[OA' up-line-or-search
+bindkey '^[OB' down-line-or-search
+
+bindkey '^[OA' history-search-backward
+bindkey '^[OB' history-search-forward
+
+bindkey '^[OA' history-beginning-search-backward
+bindkey '^[OB' history-beginning-search-forward
+
+# use vim as the visual editor
+export VISUAL=vim
+export EDITOR=$VISUAL
+
+# load thoughtbot/dotfiles scripts
+export PATH="$PATH:$HOME/.bin"
+
+# mkdir .git/safe in the root of repositories you trust
+export PATH="$PATH:.git/safe/../../bin"
+
+# aliases
+[[ -f ~/.aliases ]] && source ~/.aliases
+
+# Functions
+[[ -f ~/.zshrc.func ]] && source ~/.zshrc.func
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# ------------------------------------------------------------
+# NVM
+# Node Version Manager
+# ------------------------------------------------------------
+
+export NVM_DIR="$HOME/.nvm"
+# export NVM_SYMLINK_CURRENT=false
+
+# Primary source
+source "$NVM_DIR/nvm.sh"
+
+# Activate when want to separate with sudo version
+# [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+# export NVM_BIN="$NVM_DIR/current/bin"
+# export PATH="$PATH:$NVM_DIR"
+# alias npm="$NVM_BIN/npm"
+# alias node="$NVM_BIN/node"
+
+# source "$NVM_DIR/current/lib/node_modules/npm/lib/utils/completion.sh"
+
+# ------------------------------------------------------------
+# pyenv: Python Environment
+# Python Anaconda
+# ------------------------------------------------------------
+export PYENV_DIR="$HOME/.pyenv/"
+export PATH="$PATH:$PYENV_DIR/bin/"
+eval "$(pyenv init -)"
+# python anaconda version
+# export PATH="$HOME/anaconda/bin:$PATH"
+
+# ------------------------------------------------------------
+# rbenv
+# ------------------------------------------------------------
+export RBENV_DIR="$HOME/.rbenv/"
+export PATH="$PATH:$RBENV_DIR/bin/"
+if which rbenv &>/dev/null ; then
+  eval "$(rbenv init - --no-rehash)"
+fi
+
+# ------------------------------------------------------------
+# Docker
+# ------------------------------------------------------------
+# source /etc/bash_completion.d/docker.io
+
+# ------------------------------------------------------------
+# Java
+# ------------------------------------------------------------
+export JAVA_HOME="/usr/lib/jvm/java-7-oracle"
+export PATH="$PATH:$HOME/bin:$JAVA_HOME/bin"
+export JAVA_HOME
+export JRE_HOME
+
+# ------------------------------------------------------------
+# Android Resources
+# Android SDK
+# Android Studio
+# Genymotion
+# ------------------------------------------------------------
+export ADT_DIR="$HOME/.android-developer-toolkit/"
+export ANDROID_HOME="$ADT_DIR/sdk/"
+export ANDROIDSDK_DIR="$ANDROID_HOME"
+export ANDROIDSTUDIO_DIR="$HOME/.android-studio/"
+export PATH="$PATH:$ANDROIDSTUDIO_DIR/bin/"
+
+export PATH="$ADT_DIR//sdk/tools:$PATH"
+export PATH="$ADT_DIR//sdk/platform-tools:$PATH"
+export PATH="$ADT_DIR//sdk/build-tools/21.1.1:$PATH"
+
+export PATH="$HOME/.android/genymotion:$PATH"
+
+# ------------------------------------------------------------
+# Eclipse
+# ------------------------------------------------------------
+export ECLIPSE_DIR="$HOME:.eclipse/"
+
+# ------------------------------------------------------------
+# Heroku
+# ------------------------------------------------------------
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# ------------------------------------------------------------
+# Telegram
+# ------------------------------------------------------------
+export PATH="~/.telegram/bin:$PATH"
