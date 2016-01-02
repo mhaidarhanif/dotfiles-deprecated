@@ -1,2 +1,12 @@
 !bin
+
+.tmux/plugins
+.tmux/resurrect
+.git-hub/cache
+
+vim/plugged
 vim/bundle/
+vim/view
+
+zsh
+

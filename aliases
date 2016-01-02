@@ -4,6 +4,7 @@ alias s="source"
 alias p="pwd"
 alias tlf="tail -f"
 alias ln="ln -v"
+alias md="mkdir"
 alias mkdir="mkdir -p"
 alias ...="../.."
 alias l="ls -CF"
@@ -21,23 +22,22 @@ alias h="history"
 alias to="touch"
 
 # Network
-alias ping="ping -c 2"
+alias ping="ping -c 5"
 
 # Edit
 alias e="$EDITOR"
 alias v="$VISUAL"
 alias ge="gedit"
-
-alias vd="v dl"
+alias a="atom"
+alias sub="sublime"
 
 # File
-alias cat="cat -b"
+#alias cat="cat -b"
 alias cp="rsync -ahPvW"
 # alias cp="cp -au"
 # alias cp="gcp"
 alias rm="trash"
 alias rmv="/bin/rm"
-alias t="trash"
 
 # Search
 # alias f="find . -print | grep -i"
@@ -48,6 +48,9 @@ alias ag="ag -i"
 # Programming
 alias py="python"
 alias no="node"
+alias n="nvm use 0.10"
+alias npmi="npm install"
+alias npmig="npm install -g"
 
 # Command Line
 alias betty="$HOME/.dotfiles/betty/main.rb"
@@ -65,36 +68,46 @@ alias wgc="wget -c"
 alias wgi="wget -c -i"
 alias wgo="wget -c -O"
 
+# soundscrape
+alias so="soundscrape"
+
+# viddl-rb
+alias vid="viddl-rb"
+
 # git
 alias g="git"
 alias ga='git add'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
+alias gcm='git commit -m'
 alias ghp="git push github master; git checkout gh-pages; git rebase master; git push github gh-pages; git checkout master"
 alias gl='git pull'
-alias gp='git push'
+alias gp='git push -A'
 alias gst='git status -sb'
-alias gsd='git svn dcommit'
-alias gsr='git svn rebase'
-alias gs='git stash'
-alias gsa='git stash apply'
-alias gr='git stash && git svn rebase && git svn dcommit && git stash pop' # git refresh
+#alias gs='git stash'
+alias grma='git remote add'
 alias gd='git diff | $GIT_EDITOR -'
 alias gmv='git mv'
+alias grm='git rm'
 alias gho='$(git remote -v 2> /dev/null | grep github | sed -e "s/.*git\:\/\/\([a-z]\.\)*/\1/" -e "s/\.git$//g" -e "s/.*@\(.*\)$/\1/g" | tr ":" "/" | tr -d "\011" | sed -e "s/^/open http:\/\//g")'
+#gcl() {
+#  git cl "$@" && cd "$@"
+#}
 
 # hg
 alias hgst='hg status'
 alias hgd='hg diff | $GIT_EDITOR -'
 alias hgo='hg outgoing'
 
-# xsel
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+# Simulate OSX's pbcopy and pbpaste on other platforms
+if [ ! $(uname -s) = "Darwin" ]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+fi
 
 # apt-get
-alias add="sudo add-apt-repository"
+alias add="sudo add-apt-repository -y"
 alias purge="sudo ppa-purge"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
@@ -103,9 +116,12 @@ alias installf="sudo apt-get install -f --fix-missing"
 alias remove="sudo apt-get remove"
 alias autoremove="sudo apt-get autoremove"
 alias uninstall="sudo apt-get autoremove"
-alias upg="update; upgrade -y"
 alias hold="sudo apt-mark hold"
 alias search="sudo apt-cache search"
+alias i="install"
+alias un="uninstall"
+alias up="update"
+alias upg="upgrade"
 
 # package
 alias dp="sudo dpkg -i"
@@ -113,11 +129,19 @@ alias dpr="sudo dpkg -r"
 PIP_DOWNLOAD_CACHE="~/.pipcache"
 PIP_USE_MIRRORS=true
 
+# tmux
+alias t="tmux"
+alias ta="tmux attach -t"
+alias tx="tmuxinator"
+
 # server
-alias server="http-server"
+alias server="live-server"
 
 # Meteor
 alias m="meteor"
+alias ms="meteor search"
+alias ma="meteor add"
+alias mr="meteor remove"
 alias mu="meteor update"
 
 # Bundler
@@ -144,4 +168,9 @@ mkc() {
 mvc() {
   mv "$@" && cd "$@"
 }
+
+# The Fuck
+# Magnificent app which corrects your previous console command
+alias fuck='eval $(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
 

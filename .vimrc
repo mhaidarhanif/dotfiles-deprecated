@@ -1,15 +1,23 @@
-" Use Vim settings, rather then Vi settings
+" Vim Configuration
+" =================
+
+" Initiate good settings, rather then Vi settings
 set nocompatible
+"augroup vimrc
+"  autocmd!
+"augroup END
 
 " Set to Linux line endings
 set ff=unix
+
+" Copy
+" vmap <C-c> "+y
 
 " ------------
 " Color scheme
 " ------------
 if has('vim_starting')
   syntax enable
-  set background=dark
   if $COLORTERM == 'gnome-terminal'
     " Access colors present in 256 colorspace
     let base16colorspace=256
@@ -18,31 +26,54 @@ if has('vim_starting')
   if &t_Co < 256
     colorscheme default
   else
-    try
-      colorscheme jellybeans
-    catch
-      colorscheme github
-    endtry
     highlight NonText guibg=#060606
     highlight Folded  guibg=#0A0A0A guifg=#9090D0
   endif
 endif
 hi Normal ctermbg=none
-"highlight NonText ctermbg=none
+" highlight NonText ctermbg=none
 
 " -----------
 " Status Line
 " -----------
-" vim-airline
+" airline
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
-" unicode symbols
+
+" airline extensions
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" airline unicode symbols
+let g:airline_symbols.space = "\ua0"
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.space = "\ua0"
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+" Searching
+set rtp+=~/.fzf
 
 " ----------
 " Editing
@@ -51,11 +82,34 @@ let g:airline_symbols.space = "\ua0"
 set pastetoggle=<F10>
 
 " Leader
-let mapleader = ","
+let g:mapleader = " "
 
 " Mapping insert/normal
 imap ;; <Esc>
-nmap ;; :wq<CR>
+nmap ;; :w<CR>
+nmap ;: :wq<CR>
+cabbrev ew :wq
+cabbrev qw :wq
+
+" Clipboard
+set clipboard=unnamedplus
+
+" Switch windows with two keystrokes
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+noremap <c-h> <c-w>h
+
+" Enter command mode with one keystroke
+" nnoremap ; :
+" nnoremap : ;
+
+" Start an external command with a single bang
+nnoremap ! :!
+
+" Auto-save a file when you leave insert mode
+autocmd InsertLeave * if expand('%') != '' | update | endif
+" inoremap jk <Esc>:w<cr>
 
 " Macro
 nnoremap <Space> @d
@@ -68,8 +122,8 @@ nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 " Force save read-only files with :w!! or :sudow
-cmap w!! %!sudo tee > /dev/null %
-cnoremap sudow w !sudo tee % > /dev/null
+" cmap w!! %!sudo tee > /dev/null %
+" cnoremap sudow w !sudo tee % > /dev/null
 
 " -------
 " Explore
@@ -77,16 +131,16 @@ cnoremap sudow w !sudo tee % > /dev/null
 
 " NERDTree
 " autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-z> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if !argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd VimEnter * if !argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " map <c-l> :tabn<cr>
 " map <c-h> :tabp<cr>
 " map <c-n> :tabnew<cr>
 
 " ctrlP
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Explorer mode
 let g:netrw_liststyle=3
@@ -195,9 +249,6 @@ inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
-" Index ctags from any project, including those outside Rails
-map <Leader>ct :!ctags -R .<CR>
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
@@ -228,14 +279,66 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
-
 " Automatically reload config
 augroup myvimrc
   au!
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
+
+" Easy block selection with mouse
+noremap <M-LeftMouse> <4-LeftMouse>
+inoremap <M-LeftMouse> <4-LeftMouse>
+onoremap <M-LeftMouse> <C-C><4-LeftMouse>
+noremap <M-LeftDrag> <LeftDrag>
+inoremap <M-LeftDrag> <LeftDrag>
+onoremap <M-LeftDrag> <C-C><LeftDrag>
+
+" Select text with mouse scrolling
+set mouse=a
+
+" Vertical line indentation
+let g:indentLine_color_term = 239
+" let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_color_gui = '#A4E57E'
+let g:indentLine_char = '│'
+set list lcs=tab:\|\ 
+
+" Protect large files from sourcing and other overhead.
+" Files become read only
+if !exists("my_auto_commands_loaded")
+  let my_auto_commands_loaded = 1
+  " Large files are > 10M
+  " Set options:
+  " eventignore+=FileType (no syntax highlighting etc
+  " assumes FileType always on)
+  " noswapfile (save copy of file)
+  " bufhidden=unload (save memory when other file is viewed)
+  " buftype=nowritefile (is read-only)
+  " undolevels=-1 (no undo possible)
+  let g:LargeFile = 1024 * 1024 * 10
+  augroup LargeFile
+    autocmd BufReadPre * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
+  augroup END
+endif
+
+" Syntastic
+let g:syntastic_javascript_checkers = ['standard']
+autocmd bufwritepost *.js silent !standard % --format
+set autoread
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
+
+" Extension config
+if filereadable($HOME . "/.vimrc.plugs")
+  source ~/.vimrc.plugs
+endif
+
+" Snippets config
+if filereadable($HOME . "/.vimrc.snippets")
+  source ~/.vimrc.snippets
+endif
+
 

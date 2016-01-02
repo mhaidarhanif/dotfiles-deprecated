@@ -9,9 +9,18 @@
 .svn/
 
 # Linux
-.*
+# .*
 !.gitignore
 *~
+*un~
+*swp
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+*.dll
 
 # Archives
 *.7z
@@ -49,7 +58,7 @@ Session.vim
 
 # Eclipse
 *.pydevproject
-*.project
+.project
 *.metadata
 bin/**
 tmp/**
@@ -198,7 +207,6 @@ nosetests.xml
 *.class
 
 # Dart
-.DS_Store
 packages
 .project
 pubspec.lock
@@ -340,6 +348,19 @@ project/plugins/project/
 *.vrb
 *.xdy
 *.tdo
+*.auxlock
+*.snm
+*.nav
+*.out
+*.fdb_latexmk
+*.vrb
+*.table
+*-blx.bib
+*.mtc*
+*.maf
+*.bbl
+*.run.xml
+# *.gnuplot
 
 # Compass
 .sass-cache
@@ -361,6 +382,7 @@ logs
 results
 npm-debug.log
 node_modules
+bower_components
 
 # Maven
 target/
@@ -403,4 +425,6 @@ tmp/**/*
 zeus.json
 
 # https://github.com/github/gitignore
+
+*.mp4
 

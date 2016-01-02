@@ -2,10 +2,6 @@
 export ZSH=$HOME/.dotfiles/zsh/
 
 zstyle ':completion:*' menu select
-zstyle :compinstall filename '/home/agnium/.zshrc'
-autoload -Uz compinit
-compinit
-
 setopt completealiases
 setopt HIST_IGNORE_DUPS
 
@@ -13,8 +9,8 @@ setopt HIST_IGNORE_DUPS
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="bullet-train"
-export TERM="xterm-256color"
+# ZSH_THEME="robbyrussell"
+TERM=xterm-256color
 # Base16 Shell
 # BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-default.dark.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -57,30 +53,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# --------------------
-# Plugins with Antigen
-source ~/.dotfiles/antigen/antigen.zsh
-
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-# antigen bundle git
-# antigen bundle heroku
-# antigen bundle pip
-# antigen bundle lein
-# antigen bundle command-not-found
-# Syntax highlighting bundle
-# antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme
-# antigen theme themename
-# antigen theme gitsome
-
-# Tell antigen that you're done.
-antigen apply
-# ---------------
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -89,12 +61,12 @@ plugins=(
   bower
   bundler
   brew
+  command-not-found
   # common-aliases
   # debian
   dircycle
   gas
   gem
-  npm
   # git
   # gitfast
   # git-extras
@@ -102,7 +74,8 @@ plugins=(
   # git-flow-completion
   # git-hubflow
   # jsontools
-  # zsh-syntax-highlighting
+  npm
+  zsh-syntax-highlighting
   zsh-history-substring-search
 )
 
@@ -123,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=".git/safe/../../bin:~/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH=".git/safe/../../bin:/home/mhaidarh/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -159,8 +132,6 @@ esac
 # Git
 # ---
 
-export PATH="$PATH:$HOME/.dotfiles/git-radar"
-
 export GIT_SUBREPO_DIR="$HOME/.dotfiles/git-subrepo"
 fpath=("$GIT_SUBREPO_DIR/share/zsh-completion" $fpath)
 source $GIT_SUBREPO_DIR/init
@@ -169,10 +140,17 @@ export GIT_HUB_DIR="$HOME/.dotfiles/git-hub"
 fpath=("$GIT_HUB_DIR/share/zsh-completion" $fpath)
 source $GIT_HUB_DIR/init
 
+# modify the prompt to contain git branch name if applicable
+git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null)
+  if [[ -n $ref ]]; then
+    echo " %{$fg_bold[green]%}${ref#refs/heads/}%{$reset_color%}"
+  fi
+}
+
 setopt promptsubst
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%} %#'
+export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) %# '
 # export PS1="%~ %{%(#~$fg[red]~$fg[blue])%}%#%{$fg[default]%} "
-export PROMPT="$PROMPT\$(git-radar --zsh --fetch) "
 
 function prompt_char {
   git branch >/dev/null 2>/dev/null && echo '±' && return
@@ -213,8 +191,7 @@ export CLICOLOR=1
 setopt hist_ignore_all_dups inc_append_history
 HISTFILE=~/.zhistory
 HISTSIZE=4096
-SAVEHIST=9000
-bindkey -v
+SAVEHIST=4096
 
 # awesome cd movements from zshkit
 setopt autocd autopushd pushdminus pushdsilent pushdtohome cdablevars
@@ -285,18 +262,6 @@ export PATH="$PATH:.git/safe/../../bin"
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # ------------------------------------------------------------
-# All binaries
-# ------------------------------------------------------------
-export PATH="$PATH:$HOME/.bin"
-
-# ------------------------------------------------------------
-# Butler
-# Remembers those project specific long commands
-# ------------------------------------------------------------
-export PATH="$PATH:$HOME/.bin/butler"
-source "$(butler --init-completion)"
-
-# ------------------------------------------------------------
 # NVM
 # Node Version Manager
 # ------------------------------------------------------------
@@ -335,12 +300,6 @@ if which rbenv &>/dev/null ; then
 fi
 
 # ------------------------------------------------------------
-# Swift
-# ------------------------------------------------------------
-#export SWIFT_DIR="$HOME/.swift/"
-#export PATH="$PATH:$SWIFT_DIR/usr/bin"
-
-# ------------------------------------------------------------
 # Docker
 # ------------------------------------------------------------
 # source /etc/bash_completion.d/docker.io
@@ -354,12 +313,6 @@ export JAVA_HOME
 export JRE_HOME
 
 # ------------------------------------------------------------
-# IntelliJ IDEA
-# ------------------------------------------------------------
-export IDEA_HOME="$HOME/all/app/ide/intellij-idea/idea-IC"
-export PATH="$PATH:$IDEA_HOME/bin"
-
-# ------------------------------------------------------------
 # Android Resources
 # Android SDK
 # Android Studio
@@ -369,18 +322,13 @@ export ADT_DIR="$HOME/.android-developer-toolkit/"
 export ANDROID_HOME="$ADT_DIR/sdk/"
 export ANDROIDSDK_DIR="$ANDROID_HOME"
 export ANDROIDSTUDIO_DIR="$HOME/.android-studio/"
-
 export PATH="$PATH:$ANDROIDSTUDIO_DIR/bin/"
-export PATH="$ADT_DIR/sdk/tools:$PATH"
-export PATH="$ADT_DIR/sdk/platforms:$PATH"
-# export PATH="$ADT_DIR/sdk/build-tools:$PATH"
+
+export PATH="$ADT_DIR//sdk/tools:$PATH"
+export PATH="$ADT_DIR//sdk/platform-tools:$PATH"
+export PATH="$ADT_DIR//sdk/build-tools/21.1.1:$PATH"
 
 export PATH="$HOME/.android/genymotion:$PATH"
-
-# ------------------------------------------------------------
-# SDKMAN!
-# ------------------------------------------------------------
-source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # ------------------------------------------------------------
 # PostgreSQL
@@ -401,12 +349,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Telegram
 # ------------------------------------------------------------
 export PATH="~/.telegram/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/agnium/.sdkman"
-[[ -s "/home/agnium/.sdkman/bin/sdkman-init.sh" ]] && source "/home/agnium/.sdkman/bin/sdkman-init.sh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

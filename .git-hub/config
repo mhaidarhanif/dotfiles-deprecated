@@ -1,0 +1,5 @@
+[git-hub]
+	login = mhaidarh
+	api-token = 6165252d87f15c0f8a8a08cae93f4b3ff2a1c534
+	use-auth = true
+	json-lib = json-perl.bash

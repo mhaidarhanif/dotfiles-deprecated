@@ -5,7 +5,7 @@
     name = M Haidar Hanif
     email = mhaidarhanif@gmail.com
     editor = vim
-	signingkey = 60DEF204
+    signingkey = mhaidarhanif@gmail.com
 [core]
     excludesfile = ~/.gitignore
     #autocrlf = input
@@ -13,7 +13,7 @@
     quotepath = false
     pager = less -r
 [credential]
-    helper = cache --timeout=36000
+    helper = cache --timeout=360000
 [alias]
     alias     = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
     switch    = !legit switch \"$@\"
@@ -29,14 +29,13 @@
     create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
     delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
     merge-branch = !git checkout master && git merge @{-1}
-    a  = !git add . && git status
+    a  = !git add -A && git status
     au = !git add -u && git status
-    aa = !git add . && git add -u && git status
+    aa = !git add -A && git add -u && git status
     al = add --all
     ap = add --patch
     b  = branch
     cl = clone --depth=1 --recursive
-    clone = cl
     c  = commit
     ca = commit --amend
     ci = commit -v
@@ -46,22 +45,25 @@
     cs = commit -S
     d  = log --diff-filter=D -- $1
     diff = diff --color-words
-    h  = lg
-    hist = h
-    history = h
-    l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Cireset'
+    h  = log
+    hist = log
+    history = log
+    log = log --oneline --decorate
+    l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar'
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     ll = log --stat --abbrev-commit --show-signature
-    lo = log --oneline --graph
+    lo = log --oneline --graph --decorate
+    push  = push --tags
     p  = push
     pu = push -u
+    pull = pull --ff-only
     pr = !hub pull-request
     r  = !git ls-files -z --deleted | xargs -0 git rm
     re = reset HEAD
     remot = remote
     s  = status
-		st = status
-		size = count-objects -v
+    st = status
+    size = count-objects -v
     up = !git fetch origin && git rebase origin/master
     amend  = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
     ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
@@ -72,9 +74,10 @@
     ui     = auto # covers diff = true, status = auto, branch = auto
     interactive = auto
 [push]
-    default = current
+    # default = simple
 [merge]
-    ff = only
+    ff = false
+    tool = meld
 [include]
     path = .gitconfig.local
 [commit]
@@ -98,3 +101,12 @@
 
 [http]
 	sslverify = false
+[git-up "bundler"]
+	check = true
+
+[push]
+	default = simple
+[diff]
+	algorithm = histogram
+[multi]
+	groupbyoutput = 1

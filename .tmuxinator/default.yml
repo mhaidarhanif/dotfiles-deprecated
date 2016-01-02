@@ -1,0 +1,22 @@
+# ~/.tmuxinator/default.yml
+
+name: Default workspace
+root: ~/
+
+windows:
+  - home:
+      layout: main-horizontal
+      panes:
+        - #empty
+        - j1
+  - editor:
+      layout: main-horizontal
+      panes:
+        - #empty
+        - #empty
+  - assets:
+      layout: vertical
+      panes:
+        - j2
+        - j3 && vdi
+

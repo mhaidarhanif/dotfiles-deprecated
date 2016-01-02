@@ -1,0 +1,21 @@
+[submodule "git-hub"]
+	path = git-hub
+	url = https://github.com/ingydotnet/git-hub
+[submodule "git-subrepo"]
+	path = git-subrepo
+	url = https://github.com/ingydotnet/git-subrepo
+[submodule "nvm"]
+	path = nvm
+	url = https://github.com/creationix/nvm
+[submodule "pyenv"]
+	path = pyenv
+	url = https://github.com/yyuu/pyenv
+[submodule "rbenv"]
+	path = rbenv
+	url = https://github.com/sstephenson/rbenv
+[submodule "betty"]
+	path = betty
+	url = https://github.com/pickhardt/betty
+[submodule "zsh"]
+	path = zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
