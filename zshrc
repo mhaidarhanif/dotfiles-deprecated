@@ -290,6 +290,14 @@ export PATH="$PATH:.git/safe/../../bin"
 export PATH="$PATH:$HOME/.bin"
 
 # ------------------------------------------------------------
+# Linuxbrew
+# A fork of Homebrew for Linux
+# ------------------------------------------------------------
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+
+# ------------------------------------------------------------
 # Butler
 # Remembers those project specific long commands
 # ------------------------------------------------------------
@@ -314,6 +322,13 @@ export NVM_DIR="$HOME/.nvm"
 # alias node="$NVM_BIN/node"
 
 # source "$NVM_DIR/current/lib/node_modules/npm/lib/utils/completion.sh"
+
+# ------------------------------------------------------------
+# DNVM
+# .NET Version Manager
+# ------------------------------------------------------------
+
+[ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh"
 
 # ------------------------------------------------------------
 # pyenv: Python Environment
@@ -380,7 +395,7 @@ export PATH="$HOME/.android/genymotion:$PATH"
 # ------------------------------------------------------------
 # SDKMAN!
 # ------------------------------------------------------------
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+# source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # ------------------------------------------------------------
 # PostgreSQL
@@ -410,3 +425,10 @@ export SDKMAN_DIR="/home/agnium/.sdkman"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+###-tns-completion-start-###
+if [ -f /home/agnium/.tnsrc ]; then 
+    source /home/agnium/.tnsrc 
+fi
+###-tns-completion-end-###
+

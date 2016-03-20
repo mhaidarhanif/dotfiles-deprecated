@@ -1,0 +1,22 @@
+# ~/.tmuxinator/mhaidarhanif.yml
+
+name: mhaidarhanif
+root: ~/
+
+windows:
+  - home:
+      layout: main-horizontal
+      panes:
+        - #empty
+        - j1
+  - assets:
+      layout: main-vertical
+      panes:
+        - j3 && vdi
+        - j2 && cd z-watch
+  - editor:
+      layout: even-horizontal
+      panes:
+        - #empty
+        - #empty
+

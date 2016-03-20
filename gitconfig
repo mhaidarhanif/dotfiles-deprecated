@@ -2,111 +2,116 @@
 # https://gist.github.com/mhaidarh/5170182
 
 [user]
-    name = M Haidar Hanif
-    email = mhaidarhanif@gmail.com
-    editor = vim
-    signingkey = mhaidarhanif@gmail.com
+	name = M Haidar Hanif
+	email = git@mhaidarhanif.com
+	editor = vim
+	signingkey = mhaidarhanif@gmail.com
 [core]
-    excludesfile = ~/.gitignore
-    #autocrlf = input
-    #safecrlf = true
-    quotepath = false
-    pager = less -r
+	excludesfile = ~/.gitignore
+	# autocrlf = input
+	# safecrlf = true
+	# quotepath = false
+	# pager = less -r
 [credential]
-    helper = cache --timeout=360000
+	helper = cache --timeout=360000
+[init]
+	# templatedir = ~/.git/templates
 [alias]
-    alias     = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-    switch    = !legit switch \"$@\"
-    branches  = !legit branches
-    sprout    = !legit sprout \"$@\"
-    unpublish = !legit unpublish \"$@\"
-    harvest   = !legit harvest \"$@\"
-    sync      = !legit sync \"$@\"
-    publish   = !legit publish \"$@\"
-    graft     = !legit graft \"$@\"
-    master    = checkout master
-    develop   = checkout develop
-    create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
-    delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
-    merge-branch = !git checkout master && git merge @{-1}
-    a  = !git add -A && git status
-    au = !git add -u && git status
-    aa = !git add -A && git add -u && git status
-    al = add --all
-    ap = add --patch
-    b  = branch
-    cl = clone --depth=1 --recursive
-    c  = commit
-    ca = commit --amend
-    ci = commit -v
-    cm = commit -m
-    co = checkout
-    cb = checkout -b
-    cs = commit -S
-    d  = log --diff-filter=D -- $1
-    diff = diff --color-words
-    h  = log
-    hist = log
-    history = log
-    log = log --oneline --decorate
-    l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar'
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    ll = log --stat --abbrev-commit --show-signature
-    lo = log --oneline --graph --decorate
-    push  = push --tags
-    p  = push
-    pu = push -u
-    pull = pull --ff-only
-    pr = !hub pull-request
-    r  = !git ls-files -z --deleted | xargs -0 git rm
-    re = reset HEAD
-    remot = remote
-    s  = status
-    st = status
-    size = count-objects -v
-    up = !git fetch origin && git rebase origin/master
-    amend  = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
-    ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+	alias	 = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	switch	= !legit switch \"$@\"
+	branches  = !legit branches
+	sprout	= !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest   = !legit harvest \"$@\"
+	sync	  = !legit sync \"$@\"
+	publish   = !legit publish \"$@\"
+	graft	 = !legit graft \"$@\"
+	master	= checkout master
+	develop   = checkout develop
+	create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+	delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+	merge-branch = !git checkout master && git merge @{-1}
+	a  = !git add -A && git status
+	au = !git add -u && git status
+	aa = !git add -A && git add -u && git status
+	al = add --all
+	ap = add --patch
+	b  = branch
+	cl = clone --depth=1 --recursive
+	c  = commit
+	ca = commit --amend
+	ci = commit -v
+	cm = commit -m
+	co = checkout
+	cb = checkout -b
+	cs = commit -S
+	d  = log --diff-filter=D -- $1
+	diff = diff --color-words
+	h  = log
+	hist = log
+	history = log
+	l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar'
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ll = log --stat --abbrev-commit --show-signature
+	lo = log --oneline --graph --decorate
+	push  = push --tags
+	p  = push
+	pu = push -u
+	pull = up
+	pr = !hub pull-request
+	r  = !git ls-files -z --deleted | xargs -0 git rm
+	re = reset HEAD
+	rem = remote
+	s  = status
+	st = status
+	size = count-objects -v
+	up = !git fetch origin && git rebase origin/master
+	amend  = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 [color]
-    diff   = auto
-    status = auto
-    branch = auto
-    ui     = auto # covers diff = true, status = auto, branch = auto
-    interactive = auto
+	diff   = auto
+	status = auto
+	branch = auto
+	ui = auto
+	interactive = auto
 [push]
-    # default = simple
+	default = simple
 [merge]
-    ff = false
-    tool = meld
+	ff = false
+	tool = meld
 [include]
-    path = .gitconfig.local
+	path = .gitconfig.local
 [commit]
-    template = ~/.gitmessage
+	template = ~/.gitmessage
 [fetch]
-    prune = true
+	prune = true
 [url "https://"]
-    insteadOf = git://
-
-# http://git-scm.com
-# http://git-legit.org
-# https://github.com/github/gitignore
-# http://gitimmersion.com
-# http://oli.jp/2012/git-powerup
-# http://rails.wincent.com/wiki/Git_quickstart
-# http://blog.blindgaenger.net/advanced_git_aliases.html
-# http://theint.ro/blogs/outro/4649682-git-for-busy-people-see-what-youre-doing
-# http://www.jukie.net/bart/blog/pimping-out-git-log
-# http://nvie.com/posts/a-successful-git-branching-model/
-# http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/
-
+	insteadOf = git://
 [http]
 	sslverify = false
 [git-up "bundler"]
 	check = true
-
 [push]
 	default = simple
 [diff]
 	algorithm = histogram
 [multi]
 	groupbyoutput = 1
+[format]
+	pretty = oneline
+[branch "master"]
+	rebase = true
+[branch]
+	autosetuprebase = always
+[hub]
+	protocol = https
+
+# - http://git-scm.com
+# - http://git-legit.org
+# - https://github.com/github/gitignore
+# - https://help.github.com/articles/ignoring-files
+# - https://help.github.com/articles/dealing-with-line-endings
+# - http://gitimmersion.com
+# - http://oli.jp/2012/git-powerup
+# - http://blog.blindgaenger.net/advanced_git_aliases.html
+

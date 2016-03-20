@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/agnium/all/repo/jlpcommunity/jlp-crowdcoding/default'
+let g:netrw_dirhist_2='/home/agnium/all/repo/mhaidarh/identity/cson'
+let g:netrw_dirhist_3='/home/agnium/all/repo/agnium/agnium-training/fresh-qa/geb/agnium-sample-geb_exam'
+let g:netrw_dirhist_4='/home/agnium/all/repo/agnium/agnium-training/fresh-qa/geb/agnium-sample-geb_exam/src'
+let g:netrw_dirhist_5='/home/agnium/all/repo/agnium/agnium-training/fresh-qa/geb/agnium-sample-geb_exam/src/test'
+let g:netrw_dirhist_6='/home/agnium/all/repo/agnium/agnium-training/fresh-qa/geb/agnium-sample-geb_exam/src/test/groovy'
+let g:netrw_dirhist_7='/home/agnium/all/private/.we/notes/archived'
+let g:netrw_dirhist_8='/home/agnium/all/repo/gapcer-persona/wifi-web/semantic'
+let g:netrw_dirhist_9='/home/agnium/.tmuxinator'

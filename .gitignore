@@ -1,12 +1,7 @@
-!bin
-
-.tmux/plugins
-.tmux/resurrect
-.git-hub/cache
-
+.tmux
+.git-hub
+bin
+server
 vim/plugged
-vim/bundle/
 vim/view
-
-zsh/
-
+vim/editorconfig*

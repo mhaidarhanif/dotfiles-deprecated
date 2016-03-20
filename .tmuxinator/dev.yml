@@ -1,0 +1,17 @@
+# ~/.tmuxinator/dev.yml
+
+name: Dev
+root: ~/all/repo
+
+windows:
+  - tools:
+      layout: even-horizontal
+      panes:
+        - #empty
+        - #empty
+  - editor:
+      layout: main-vertical
+      panes:
+        - #empty
+        - #empty
+

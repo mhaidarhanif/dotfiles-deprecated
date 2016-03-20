@@ -13,6 +13,10 @@ set ff=unix
 " Copy
 " vmap <C-c> "+y
 
+" Skip Python
+let g:python_host_skip_check=1
+let g:loaded_python3_provider=1
+
 " ------------
 " Color scheme
 " ------------
@@ -120,6 +124,10 @@ inoremap <C-v> <F10><C-r>+<F10>
 
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+inoremap jk <ESC>
+
+" Leader key
+let mapleader = ","
 
 " Force save read-only files with :w!! or :sudow
 " cmap w!! %!sudo tee > /dev/null %
@@ -156,7 +164,7 @@ au FocusLost * :wa         " Always autosave everything
 au FocusLost * silent! wa  " Ignore warnings from untitled buffers
 set autowriteall
 
-set cm=blowfish
+" set cm=blowfish
 set backspace=2   " Backspace deletes like most programs in insert mode
 
 set history=100

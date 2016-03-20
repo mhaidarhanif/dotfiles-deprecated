@@ -30,6 +30,7 @@ alias v="$VISUAL"
 alias ge="gedit"
 alias a="atom"
 alias sub="sublime"
+alias nv="nvim"
 
 # File
 #alias cat="cat -b"
@@ -47,6 +48,9 @@ alias ag="ag -i"
 
 # Programming
 alias py="python"
+alias python="~/.pyenv/shims/python"
+alias python2="~/.pyenv/shims/python2"
+alias python3="~/.pyenv/shims/python3"
 alias no="node"
 alias n="nvm use 0.10"
 alias npmi="npm install"
@@ -138,11 +142,11 @@ alias tx="tmuxinator"
 alias server="live-server"
 
 # Meteor
-alias m="meteor"
-alias ms="meteor search"
-alias ma="meteor add"
-alias mr="meteor remove"
-alias mu="meteor update"
+#alias m="meteor"
+#alias ms="meteor search"
+#alias ma="meteor add"
+#alias mr="meteor remove"
+#alias mu="meteor update"
 
 # Bundler
 # alias b="bundle"

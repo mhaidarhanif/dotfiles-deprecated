@@ -116,3 +116,9 @@ export SDKMAN_DIR="/home/agnium/.sdkman"
 [[ -s "/home/agnium/.sdkman/bin/sdkman-init.sh" ]] && source "/home/agnium/.sdkman/bin/sdkman-init.sh"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+###-tns-completion-start-###
+if [ -f /home/agnium/.tnsrc ]; then 
+    source /home/agnium/.tnsrc 
+fi
+###-tns-completion-end-###
