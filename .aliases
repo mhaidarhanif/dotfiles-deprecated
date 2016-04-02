@@ -141,6 +141,11 @@ alias tx="tmuxinator"
 # server
 alias server="live-server"
 
+# Docker
+alias dps="docker ps -a"
+alias dstop="docker stop $(docker ps -a -q)"
+alias drm="docker rm $(docker ps -a -q)"
+
 # Meteor
 #alias m="meteor"
 #alias ms="meteor search"
@@ -175,6 +180,6 @@ mvc() {
 
 # The Fuck
 # Magnificent app which corrects your previous console command
-alias fuck='eval $(thefuck $(fc -ln -1))'
-alias FUCK='fuck'
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias FUCK)"
 

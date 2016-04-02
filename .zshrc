@@ -1,8 +1,12 @@
+# ======================
+# Main ZSH configuration
+# ======================
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.dotfiles/zsh/
 
 zstyle ':completion:*' menu select
-zstyle :compinstall filename '/home/agnium/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
@@ -61,25 +65,22 @@ HIST_STAMPS="yyyy-mm-dd"
 # Plugins with Antigen
 source ~/.dotfiles/antigen/antigen.zsh
 
-# Load the oh-my-zsh's library.
+# Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
+# Bundles from the default repo (robbyrussell's oh-my-zsh)
+# antigen bundle command-not-found
 # antigen bundle git
 # antigen bundle heroku
 # antigen bundle pip
 # antigen bundle lein
-# antigen bundle command-not-found
-# Syntax highlighting bundle
-# antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme
 # antigen theme themename
 # antigen theme gitsome
+# antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions src
+antigen bundle sdurrheimer/docker-compose-zsh-completion
 
-# Tell antigen that you're done.
-antigen apply
-# ---------------
+antigen apply # Tell antigen that you're done.
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -121,7 +122,9 @@ ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
 source $ZSH/oh-my-zsh.sh
 
+# ==================
 # User configuration
+# ==================
 
 export PATH=".git/safe/../../bin:~/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -151,35 +154,38 @@ case $TERM in
     ;;
 esac
 
-# ----------
-# Prompt
-# ----------
+# ------------
+# Prompt & Git
+# ------------
 
-# ---
-# Git
-# ---
-
+# git-radar
 export PATH="$PATH:$HOME/.dotfiles/git-radar"
 
+# git-subrepo
 export GIT_SUBREPO_DIR="$HOME/.dotfiles/git-subrepo"
 fpath=("$GIT_SUBREPO_DIR/share/zsh-completion" $fpath)
 source $GIT_SUBREPO_DIR/init
 
+# git-hub
 export GIT_HUB_DIR="$HOME/.dotfiles/git-hub"
 fpath=("$GIT_HUB_DIR/share/zsh-completion" $fpath)
 source $GIT_HUB_DIR/init
 
+# zsh-prompt
 setopt promptsubst
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%} %#'
 # export PS1="%~ %{%(#~$fg[red]~$fg[blue])%}%#%{$fg[default]%} "
+export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%} %#'
+export NEWLINE=$'\n'
 export PROMPT="$PROMPT\$(git-radar --zsh --fetch) "
 
+# zsh-prompt-char
 function prompt_char {
   git branch >/dev/null 2>/dev/null && echo '±' && return
   hg root >/dev/null 2>/dev/null && echo '☿' && return
   echo '$'
 }
 
+# git-branch function
 function git_branch {
   BRANCH="$(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3)"
   if ! test -z $BRANCH; then
@@ -189,6 +195,10 @@ function git_branch {
     echo "$COL$BRANCH"
   fi
 }
+
+# ------
+# Extras
+# ------
 
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
@@ -213,7 +223,7 @@ export CLICOLOR=1
 setopt hist_ignore_all_dups inc_append_history
 HISTFILE=~/.zhistory
 HISTSIZE=4096
-SAVEHIST=9000
+SAVEHIST=9999
 bindkey -v
 
 # awesome cd movements from zshkit
@@ -309,12 +319,12 @@ source "$(butler --init-completion)"
 # Node Version Manager
 # ------------------------------------------------------------
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR=$(readlink -f "$HOME/.nvm")
 # Primary source, this loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-# export NVM_SYMLINK_CURRENT=false
+export NVM_SYMLINK_CURRENT=false
 
-# Activate when want to separate with sudo version
+# Activate when want to be separated with sudo version
 # [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 # export NVM_BIN="$NVM_DIR/current/bin"
 # export PATH="$PATH:$NVM_DIR"
@@ -334,7 +344,7 @@ export NVM_DIR="$HOME/.nvm"
 # pyenv: Python Environment
 # Python Anaconda
 # ------------------------------------------------------------
-export PYENV_DIR="$HOME/.pyenv/"
+export PYENV_DIR=$(readlink -f "$HOME/.pyenv")
 export PATH="$PATH:$PYENV_DIR/bin/"
 eval "$(pyenv init -)"
 # python anaconda version
@@ -343,7 +353,7 @@ eval "$(pyenv init -)"
 # ------------------------------------------------------------
 # rbenv
 # ------------------------------------------------------------
-export RBENV_DIR="$HOME/.rbenv/"
+export RBENV_DIR=$(readlink -f "$HOME/.rbenv")
 export PATH="$PATH:$RBENV_DIR/bin/"
 if which rbenv &>/dev/null ; then
   eval "$(rbenv init - --no-rehash)"
@@ -352,13 +362,13 @@ fi
 # ------------------------------------------------------------
 # Swift
 # ------------------------------------------------------------
-#export SWIFT_DIR="$HOME/.swift/"
+#export SWIFT_DIR="$HOME/.swift"
 #export PATH="$PATH:$SWIFT_DIR/usr/bin"
 
 # ------------------------------------------------------------
 # Docker
 # ------------------------------------------------------------
-# source /etc/bash_completion.d/docker.io
+#export DOCKER_DIR="$HOME/.docker"
 
 # ------------------------------------------------------------
 # Java
@@ -371,6 +381,7 @@ export JRE_HOME
 # ------------------------------------------------------------
 # IntelliJ IDEA
 # ------------------------------------------------------------
+export IDEA_CONFIG="$HOME/.IdeaIC14"
 export IDEA_HOME="$HOME/all/app/ide/intellij-idea/idea-IC"
 export PATH="$PATH:$IDEA_HOME/bin"
 
@@ -393,11 +404,6 @@ export PATH="$ADT_DIR/sdk/platforms:$PATH"
 export PATH="$HOME/.android/genymotion:$PATH"
 
 # ------------------------------------------------------------
-# SDKMAN!
-# ------------------------------------------------------------
-# source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# ------------------------------------------------------------
 # PostgreSQL
 # ------------------------------------------------------------
 export PGHOST=localhost
@@ -410,6 +416,7 @@ export ECLIPSE_DIR="$HOME:.eclipse/"
 # ------------------------------------------------------------
 # Heroku
 # ------------------------------------------------------------
+# Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # ------------------------------------------------------------
@@ -417,18 +424,20 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # ------------------------------------------------------------
 export PATH="~/.telegram/bin:$PATH"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/agnium/.sdkman"
-[[ -s "/home/agnium/.sdkman/bin/sdkman-init.sh" ]] && source "/home/agnium/.sdkman/bin/sdkman-init.sh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# Fuzzy file finder
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###-tns-completion-start-###
-if [ -f /home/agnium/.tnsrc ]; then 
-    source /home/agnium/.tnsrc 
+if [ -f $HOME/.tnsrc ]; then 
+    source $HOME/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+# ------------------------------------------------------------
+# SDKMAN!
+# ------------------------------------------------------------
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 

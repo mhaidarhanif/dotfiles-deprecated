@@ -122,3 +122,6 @@ if [ -f /home/agnium/.tnsrc ]; then
     source /home/agnium/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+
+

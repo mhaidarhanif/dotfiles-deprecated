@@ -7,7 +7,7 @@ windows:
   - home:
       layout: main-horizontal
       panes:
-        - #empty
+        - # blank
         - j1
   - assets:
       layout: main-vertical
@@ -17,6 +17,6 @@ windows:
   - editor:
       layout: even-horizontal
       panes:
-        - #empty
-        - #empty
+        - # blank
+        - # blank
 

@@ -52,7 +52,7 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " airline unicode symbols
-let g:airline_symbols.space = "\ua0"
+let g:airline_symbols.space = " "
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
@@ -294,7 +294,7 @@ nnoremap <C-l> <C-w>l
 " Automatically reload config
 augroup myvimrc
   au!
-  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+  au BufWritePost .nvimrc,.vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
 " Easy block selection with mouse
@@ -352,5 +352,4 @@ endif
 if filereadable($HOME . "/.vimrc.snippets")
   source ~/.vimrc.snippets
 endif
-
 
