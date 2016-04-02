@@ -5,6 +5,8 @@
 # Git Common
 ############
 
+!*/
+
 # SVN
 .svn/
 
@@ -61,8 +63,12 @@ Session.vim
 .vim/editorconfig*
 
 # atom
-.atom
+!.atom/
+.atom/*
 !.atom/config.cson
+!.atom/snippets.cson
+!.atom/packages-list.txt
+!.atom/install.sh
 
 # IntelliJ
 *.iml

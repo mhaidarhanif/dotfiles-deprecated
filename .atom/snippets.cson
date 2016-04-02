@@ -1,0 +1,4 @@
+'.source.js':
+  'Snippet Name':
+    'prefix': 'hello'
+    'body': 'Hello World!'

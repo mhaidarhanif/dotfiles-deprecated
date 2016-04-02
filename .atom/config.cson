@@ -1,0 +1,83 @@
+"*":
+  "atom-beautify":
+    _analyticsUserId: "3d038bf6-4cee-4919-bf7e-7249030de8c1"
+    beautifyEntireFileOnSave: false
+    css_align_assignments: true
+    css_force_indentation: true
+    css_newline_between_rules: true
+    css_no_lead_zero: true
+    js_jslint_happy: true
+    js_keep_array_indentation: true
+    js_keep_function_indentation: true
+    python_sort_imports: true
+  "atom-material-ui":
+    colors:
+      abaseColor:
+        red: 128
+        green: 222
+        blue: 234
+        alpha: 1
+      accentColor:
+        red: 82
+        green: 140
+        blue: 148
+        alpha: 1
+      genAccent: true
+      predefinedColor: "Cyan"
+    fonts: {}
+    tabs:
+      compactTabs: true
+      tintedTabBar: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  core:
+    disabledPackages: [
+      "linter-js-standard"
+      "flex-tool-bar"
+      "tool-bar-main"
+      "linter-jscs"
+      "git-blame"
+      "sync-settings"
+      "ex-mode"
+      "vim-mode"
+      "git-diff-details"
+    ]
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  editor:
+    backUpBeforeSaving: true
+    invisibles: {}
+    preferredLineLength: 90
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "cbb8e6aa-d117-6157-d6e8-e2771441b83c"
+  "flex-tool-bar": {}
+  "git-plus":
+    pullBeforePush: "pull --rebase"
+  linter:
+    showErrorPanel: false
+  "linter-jscs": {}
+  "sync-settings":
+    _analyticsUserId: "a033291d-5d3e-4f08-b7b9-e81a624387c7"
+  "tool-bar":
+    position: "Left"
+  "vim-mode":
+    startInInsertMode: true
+    useSmartcaseForSearch: true
+  wakatime:
+    apikey: "8b7d0892-69b9-442b-82cd-cc7a8f34fc19"
+  welcome:
+    showOnStartup: false
+".diff.source":
+  editor:
+    preferredLineLength: 80
+    scrollPastEnd: true
