@@ -60,6 +60,5 @@ gen .fonts.conf
 gen .psqlrc
 
 # sdkman
-export SDKMAN_DIR="$dotfiles/.sdkman" && curl -s get.sdkman.io | bash
 gen .sdkman
 

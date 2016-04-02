@@ -17,6 +17,19 @@ Clone onto your laptop:
 
     git clone git://github.com/mhaidarh/dotfiles.git
 
+
+### Setup
+
+Setup various platform intallation:
+
+    ./setup-intall.sh
+
+Setup symbolic links:
+
+    ./setup-links.sh
+
+### rcm (rc file management)
+
 Install [rcm](https://github.com/thoughtbot/rcm)
 
 Install:
@@ -73,11 +86,11 @@ Your `~/.vimrc.bundles.local` might look like this:
 What's in it?
 -------------
 
-[vim](http://www.vim.org/) configuration
+[vim](http://vim.org) configuration
 
 [tmux](http://robots.thoughtbot.com/a-tmux-crash-course) configuration
 
-[git](http://git-scm.com/) configuration
+[git](http://git-scm.com) configuration
 
 Shell aliases and scripts:
 
