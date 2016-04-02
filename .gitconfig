@@ -58,6 +58,7 @@
 	lo = log --oneline --graph --decorate
 	push  = push --tags
 	p  = push
+	pf = push -f
 	pu = push -u
 	pull = up
 	pr = !hub pull-request
