@@ -26,6 +26,7 @@ alias ping="ping -c 5"
 
 # Vim
 alias vim="vim -u ~/.vimrc"
+alias v="vim"
 
 # Edit
 alias e="$EDITOR"
