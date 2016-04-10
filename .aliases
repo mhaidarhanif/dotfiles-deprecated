@@ -24,6 +24,9 @@ alias to="touch"
 # Network
 alias ping="ping -c 5"
 
+# Vim
+alias vim="vim -u ~/.vimrc"
+
 # Edit
 alias e="$EDITOR"
 alias v="$VISUAL"

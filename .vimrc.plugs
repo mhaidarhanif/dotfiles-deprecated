@@ -8,73 +8,60 @@ filetype off
 " call vundle#rc()
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-obsession'
-Plug 'easymotion/vim-easymotion'
+Plug 'mhinz/vim-startify'
+Plug 'wakatime/vim-wakatime'
+
+" Plug 'airblade/vim-gitgutter'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-fugitive'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'wincent/terminus'
+" Plug 'wincent/Command-T'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'Shougo/unite.vim'
+" Plug 'haya14busa/incsearch.vim'
+" Plug 'kopischke/vim-stay'
+" Plug 'tmux-plugins/vim-tmux'
 " Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 " Plug 'flazz/vim-colorschemes'
-Plug 'chriskempson/base16-vim'
-Plug 'wincent/terminus'
-Plug 'mhinz/vim-startify'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-fugitive'
+" Plug 'chriskempson/base16-vim'
 " Plug 'tpope/vim-endwise'
 " Plug 'tpope/vim-surround'
-Plug 'rking/ag.vim'
-Plug 'zhaocai/GoldenView.Vim'
-Plug 'wincent/Command-T'
 " Plug 'christoomey/vim-run-interactive'
-" Plug 'croaky/vim-colors-github'
 " Plug 'danro/rename.vim'
 " Plug 'kien/ctrlp.vim'
 " Plug 'pbrisbin/vim-mkdir'
-Plug 'editorconfig/editorconfig-vim'
 " Plug 'scrooloose/syntastic'
-Plug 'marijnh/tern_for_vim' " VIM JS autocompletion with type hints
-Plug 'EinfachToll/DidYouMean'
-Plug 'Z1MM32M4N/vim-superman'
-Plug 'junegunn/seoul256.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'lervag/vimtex'
+" Plug 'EinfachToll/DidYouMean'
+" Plug 'Z1MM32M4N/vim-superman'
+" Plug 'lervag/vimtex'
 " Plug 'vim-latex/vim-latex'
-Plug 'LaTeX-Box-Team/LaTeX-Box'
-Plug 'xuhdev/vim-latex-live-preview'
-Plug 'digitaltoad/vim-jade'
-Plug 'kchmck/vim-coffee-script'
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Plug 'xuhdev/vim-latex-live-preview'
 " Plug 'slim-template/vim-slim'
 " Plug 'thoughtbot/vim-rspec'
 " Plug 'vim-scripts/matchit.zip'
 " Plug 'vim-scripts/ctags.vim'
 " Plug 'vim-scripts/tComment'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'Shougo/unite.vim'
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'jaxbot/semantic-highlight.vim'
 " Plug 'jaxbot/github-issues.vim'
-Plug 'airblade/vim-gitgutter'
 " Plug 'jaxbot/browserlink.vim'
-Plug 'haya14busa/incsearch.vim'
-Plug 'mattn/emmet-vim'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 " vim-stay | Make Vim persist editing state without fuss
-Plug 'kopischke/vim-stay'
-Plug 'ryanoasis/vim-webdevicons'
-Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] }
+" Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] }
 " Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' } " A simple Vimscript test framework
-Plug 'kylef/apiblueprint.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Yggdroot/indentLine'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'wakatime/vim-wakatime'
+" Plug 'kylef/apiblueprint.vim'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'Yggdroot/indentLine'
 
 call plug#end()
-
-if filereadable(expand("~/.vimrc.plugs.local"))
-  source ~/.vimrc.plugs.local
-endif
 
 filetype on
 

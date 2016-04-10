@@ -17,73 +17,12 @@ set ff=unix
 let g:python_host_skip_check=1
 let g:loaded_python3_provider=1
 
-" ------------
-" Color scheme
-" ------------
-if has('vim_starting')
-  syntax enable
-  if $COLORTERM == 'gnome-terminal'
-    " Access colors present in 256 colorspace
-    let base16colorspace=256
-    set t_Co=256
-  endif
-  if &t_Co < 256
-    colorscheme default
-  else
-    highlight NonText guibg=#060606
-    highlight Folded  guibg=#0A0A0A guifg=#9090D0
-  endif
-endif
-hi Normal ctermbg=none
-" highlight NonText ctermbg=none
-
-" -----------
-" Status Line
-" -----------
-" airline
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" airline extensions
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" airline unicode symbols
-let g:airline_symbols.space = "\ua0"
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
 " Searching
 set rtp+=~/.fzf
 
-" ----------
 " Editing
-" ----------
 " set paste
-set pastetoggle=<F10>
+" set pastetoggle=<F10>
 
 " Leader
 let g:mapleader = " "
@@ -137,15 +76,11 @@ let mapleader = ","
 " cmap w!! %!sudo tee > /dev/null %
 " cnoremap sudow w !sudo tee % > /dev/null
 
-" -------
-" Explore
-" -------
-
 " NERDTree
 " autocmd vimenter * NERDTree
-map <C-z> :NERDTreeToggle<CR>
-autocmd StdinReadPre * let s:std_in=1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"map <C-z> :NERDTreeToggle<CR>
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " autocmd VimEnter * if !argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " map <c-l> :tabn<cr>
 " map <c-h> :tabp<cr>
@@ -155,12 +90,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Explorer mode
-let g:netrw_liststyle=3
+"let g:netrw_liststyle=3
 "map <leader>k :E<cr> 
 "map <C-n> :E<CR>
-
-" time delay
-set timeoutlen=2000 ttimeoutlen=0
 
 " Autosave
 let g:auto_save = 1 " enable AutoSave on Vim startup
@@ -168,7 +100,7 @@ au FocusLost * :wa         " Always autosave everything
 au FocusLost * silent! wa  " Ignore warnings from untitled buffers
 set autowriteall
 
-" set cm=blowfish
+set cm=blowfish
 set backspace=2   " Backspace deletes like most programs in insert mode
 
 set history=100
@@ -181,7 +113,7 @@ set smartcase
 set hlsearch
 set showmode
 
-" --- BACKUP ---
+" Backup directories
 " set directory=~/tmpvim
 set backupdir=~/tmpvim
 set undodir=~/tmpvim
@@ -194,50 +126,9 @@ set undofile
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-endif
-
-augroup vimrcEx
-  autocmd!
-
-  " For all text files set 'textwidth'
-  " autocmd FileType text setlocal textwidth=80
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  " Cucumber navigation commands
-  autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
-  autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-
-  " Enable spellchecking for Markdown
-  " autocmd FileType markdown setlocal spell
-
-  " Automatically wrap at 80 characters for Markdown
-  " autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-augroup END
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+"if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+"  syntax on
+"endif
 
 " Numbers bar
 set number
@@ -292,21 +183,21 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 " Automatically reload config
-augroup myvimrc
-  au!
-  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
+"augroup myvimrc
+"  au!
+"  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+"augroup END
 
 " Easy block selection with mouse
-noremap <M-LeftMouse> <4-LeftMouse>
-inoremap <M-LeftMouse> <4-LeftMouse>
-onoremap <M-LeftMouse> <C-C><4-LeftMouse>
-noremap <M-LeftDrag> <LeftDrag>
-inoremap <M-LeftDrag> <LeftDrag>
-onoremap <M-LeftDrag> <C-C><LeftDrag>
+" noremap <M-LeftMouse> <4-LeftMouse>
+" inoremap <M-LeftMouse> <4-LeftMouse>
+" onoremap <M-LeftMouse> <C-C><4-LeftMouse>
+" noremap <M-LeftDrag> <LeftDrag>
+" inoremap <M-LeftDrag> <LeftDrag>
+" onoremap <M-LeftDrag> <C-C><LeftDrag>
 
 " Select text with mouse scrolling
-set mouse=a
+" set mouse=a
 
 " Vertical line indentation
 let g:indentLine_color_term = 239
@@ -338,13 +229,13 @@ let g:syntastic_javascript_eslint_generic = 1
 let g:syntastic_javascript_eslint_exec = 'xo'
 let g:syntastic_javascript_eslint_args = '--reporter=compact'
 let g:syntastic_javascript_checkers = ['eslint']
-autocmd bufwritepost *.js silent !standard % --format
+" autocmd bufwritepost *.js silent !standard % --format
 set autoread
 
 " Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
+" if filereadable($HOME . "/.vimrc.local")
+"  source ~/.vimrc.local
+" endif
 
 " Extension config
 if filereadable($HOME . "/.vimrc.plugs")
@@ -352,8 +243,7 @@ if filereadable($HOME . "/.vimrc.plugs")
 endif
 
 " Snippets config
-if filereadable($HOME . "/.vimrc.snippets")
-  source ~/.vimrc.snippets
-endif
-
+" if filereadable($HOME . "/.vimrc.snippets")
+"  source ~/.vimrc.snippets
+" endif
 

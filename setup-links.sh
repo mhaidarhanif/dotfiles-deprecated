@@ -8,6 +8,7 @@ gen() {
 
 # bash/zsh
 gen .bashrc
+gen .zprezto
 gen .zsh
 gen .zshrc
 gen .zshrc.func

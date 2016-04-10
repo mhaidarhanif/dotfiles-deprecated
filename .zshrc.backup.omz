@@ -1,3 +1,4 @@
+# DO NOT USE OR MODIFY. FOR SNAPSHOT ONLY
 # ======================
 # Main ZSH configuration
 # ======================
@@ -10,14 +11,17 @@ zstyle :compinstall filename '$HOME/.zshrc'
 
 setopt completealiases
 setopt HIST_IGNORE_DUPS
+setopt EXTENDED_GLOB
 
 autoload -Uz compinit
 compinit
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Load Prezto
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+# Set theme
 export ZSH_THEME="agnoster"
 export TERM="xterm-256color"
 # Base16 Shell
@@ -326,7 +330,6 @@ export NVM_SYMLINK_CURRENT=false
 # DNVM
 # .NET Version Manager
 # ------------------------------------------------------------
-
 [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh"
 
 # ------------------------------------------------------------
@@ -357,7 +360,7 @@ fi
 # ------------------------------------------------------------
 # Docker
 # ------------------------------------------------------------
-#export DOCKER_DIR="$HOME/.docker"
+export DOCKER_DIR="$HOME/.docker"
 
 # ------------------------------------------------------------
 # Java

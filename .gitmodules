@@ -16,6 +16,3 @@
 [submodule "betty"]
 	path = betty
 	url = https://github.com/pickhardt/betty
-[submodule "zsh"]
-	path = zsh
-	url = https://github.com/robbyrussell/oh-my-zsh
