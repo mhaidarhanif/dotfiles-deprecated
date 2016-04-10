@@ -2,39 +2,36 @@
 # Main ZSH configuration
 # ======================
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.dotfiles/zsh/
+# Path to ZSH installation
+export ZSH=$HOME/.dotfiles/zsh
 
 zstyle ':completion:*' menu select
 zstyle :compinstall filename '$HOME/.zshrc'
-autoload -Uz compinit
-compinit
 
 setopt completealiases
 setopt HIST_IGNORE_DUPS
+
+autoload -Uz compinit
+compinit
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="bullet-train"
+export ZSH_THEME="agnoster"
 export TERM="xterm-256color"
 # Base16 Shell
 # BASE16_SHELL="$HOME/.dotfiles/base16-shell/base16-default.dark.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=14
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -46,7 +43,7 @@ DISABLE_AUTO_TITLE="true"
 # DISABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -59,7 +56,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# ZSH_CUSTOM=/path/to/custom
 
 # --------------------
 # Plugins with Antigen
@@ -106,10 +103,6 @@ plugins=(
   # zsh-syntax-highlighting
   zsh-history-substring-search
 )
-
-# autojump settings
-# Enable ZSH Tab Completion
-autoload -U compinit && compinit
 
 # Syntax highlighting config
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
@@ -171,12 +164,12 @@ export GIT_HUB_DIR="$HOME/.dotfiles/git-hub"
 fpath=("$GIT_HUB_DIR/share/zsh-completion" $fpath)
 source $GIT_HUB_DIR/init
 
-# zsh-prompt
-setopt promptsubst
+# zsh-prompt (if no theme is activated)
+#setopt promptsubst
 # export PS1="%~ %{%(#~$fg[red]~$fg[blue])%}%#%{$fg[default]%} "
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%} %#'
-export NEWLINE=$'\n'
-export PROMPT="$PROMPT\$(git-radar --zsh --fetch) "
+#export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%} %#'
+#export NEWLINE=$'\n'
+#export PROMPT="$PROMPT\$(git-radar --zsh --fetch) "
 
 # zsh-prompt-char
 function prompt_char {
@@ -202,10 +195,6 @@ function git_branch {
 
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
-
-# completion
-autoload -U compinit
-compinit
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
@@ -425,7 +414,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="~/.telegram/bin:$PATH"
 
 # Fuzzy file finder
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ###-tns-completion-start-###
 if [ -f $HOME/.tnsrc ]; then 
@@ -440,4 +429,13 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# ------------------------------------------------------------
+# ASDF
+# ------------------------------------------------------------
+source $HOME/.asdf/asdf.sh
+# source $HOME/.asdf/completions/asdf.bash
+
+# antibody >= antigen
+source <(antibody init)
 

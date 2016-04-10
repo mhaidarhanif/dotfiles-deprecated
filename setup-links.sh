@@ -31,6 +31,7 @@ gen .atom
 gen .gitconfig
 gen .gitignore
 gen .gitmessage
+gen .gitattributes
 
 # .tmux
 gen .tmux
@@ -38,7 +39,8 @@ gen .tmux.conf
 gen .tmux.conf.local
 gen .tmuxinator
 
-# node/python/ruby
+# asdf/node/python/ruby
+gen .asdf
 gen .nvm
 gen .npm
 gen .npmrc

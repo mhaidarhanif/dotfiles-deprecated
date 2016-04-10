@@ -334,7 +334,10 @@ if !exists("my_auto_commands_loaded")
 endif
 
 " Syntastic
-let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_eslint_generic = 1
+let g:syntastic_javascript_eslint_exec = 'xo'
+let g:syntastic_javascript_eslint_args = '--reporter=compact'
+let g:syntastic_javascript_checkers = ['eslint']
 autocmd bufwritepost *.js silent !standard % --format
 set autoread
 

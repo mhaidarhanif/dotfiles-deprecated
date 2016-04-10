@@ -1,0 +1,25 @@
+# ~/.tmuxinator/arlin.yml
+
+name: arlin
+root: ~/all/repo/gunadarma/academy
+
+# Runs before everything. Use it to start daemons etc.
+pre: sudo service docker start
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+startup_window: home
+
+windows:
+  - home:
+      layout: main-horizontal
+      panes:
+        - # blank
+        - cd arlin
+  - test: cd arlin-test
+  - web: cd arlin-web
+  - app:
+      layout: main-horizontal
+      panes:
+        - cd arlin-app
+        - # blank
+

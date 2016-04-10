@@ -8,11 +8,12 @@
 	signingkey = mhaidarhanif@gmail.com
 	useconfigonly = true
 [core]
+	pager = less -r
 	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
 	# autocrlf = input
 	# safecrlf = true
 	# quotepath = false
-	# pager = less -r
 [credential]
 	helper = store
 [init]
@@ -118,3 +119,7 @@
 # - http://oli.jp/2012/git-powerup
 # - http://blog.blindgaenger.net/advanced_git_aliases.html
 
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f

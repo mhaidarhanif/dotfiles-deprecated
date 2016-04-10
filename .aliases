@@ -137,14 +137,17 @@ PIP_USE_MIRRORS=true
 alias t="tmux"
 alias ta="tmux attach -t"
 alias tx="tmuxinator"
+alias txp="tmuxp load"
 
 # server
 alias server="live-server"
 
 # Docker
-alias dps="docker ps -a"
-alias dstop="docker stop $(docker ps -a -q)"
-alias drm="docker rm $(docker ps -a -q)"
+alias docker.images="docker images" # list all images
+alias docker.ps="docker ps -a" # list all containers
+alias docker.stop="docker stop $(docker ps -a -q)" # stop all containers
+alias docker.clean='docker rm $(docker ps --no-trunc -aq)' # remove all containers
+alias docker.cleanimages='docker rmi $(docker images --filter dangling=true --quiet)' # deletes all your downloaded images
 
 # Meteor
 #alias m="meteor"

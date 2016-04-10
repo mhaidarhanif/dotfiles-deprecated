@@ -1,5 +1,5 @@
 alias j1="jc credentials"
-alias j2="jc videos/z-watch"
+alias j2="jc videos"
 alias j22="jc videos-jp"
 alias j3="jc data"
 alias j4="jc hazeorid-base"
@@ -8,14 +8,14 @@ alias j55="jc contents"
 alias j6="jc mhaidarh"
 alias j0="jc corbited-base"
 
-alias va="v acter.md"
+alias va="v acter"
 alias vd="v dl"
 alias vdi="v directory.md"
 alias vdia="v directory-add.md"
 
 alias edl="echo '' > dl"
 
-alias vva="v ~/all/credentials/acter.md"
+alias vva="v ~/all/credentials/acter"
 alias vvd="v ~/all/videos/z-watch/dl"
 alias vvdx="v ~/all/videos/z-watch/dlx"
 alias vvdi="v ~/all/repo/mhaidarh/data/directory.md"

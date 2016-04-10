@@ -15,7 +15,7 @@ windows:
         - j3 && vdi
         - j2 && cd z-watch
   - editor:
-      layout: even-horizontal
+      layout: main-horizontal
       panes:
         - # blank
         - # blank
