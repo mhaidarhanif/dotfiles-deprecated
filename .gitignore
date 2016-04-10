@@ -59,7 +59,6 @@ Thumbs.db
 Session.vim
 .netrwhist
 *~
-.vim
 .vim/editorconfig*
 
 # atom
@@ -191,7 +190,7 @@ proguard/
 .idea/
 
 # Python
-.pyenv
+#.pyenv
 *.py[cod]
 ## C extensions
 *.so
@@ -252,7 +251,7 @@ _testmain.go
 *.exe
 
 # Ruby
-.rbenv
+#.rbenv
 .rvm
 *.gem
 *.rbc
@@ -400,7 +399,7 @@ lib-cov
 *.out
 *.pid
 *.gz
-.nvm
+#.nvm
 .npm
 ,npmrc
 pids

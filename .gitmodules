@@ -18,27 +18,28 @@
 	path = .vim
 	url = https://github.com/mhaidarh/dotvim
 	branch = master
-[submodule "asdf"]
-	path = .asdf
-	url = https://github.com/asdf-vm/asdf
-	branch = master
 [submodule "linuxbrew"]
 	path = .linuxbrew
 	url = https://github.com/Linuxbrew/linuxbrew
 	branch = master
-[submodule "nvm"]
-	path = nvm
-	url = https://github.com/creationix/nvm
-	branch = master
-[submodule "pyenv"]
-	path = pyenv
-	url = https://github.com/yyuu/pyenv
-	branch = master
-[submodule "rbenv"]
-	path = rbenv
-	url = https://github.com/sstephenson/rbenv
+[submodule "asdf"]
+	path = .asdf
+	url = https://github.com/asdf-vm/asdf
 	branch = master
 [submodule "betty"]
 	path = betty
 	url = https://github.com/pickhardt/betty
 	branch = master
+[submodule "nvm"]
+	path = .nvm
+	url = https://github.com/creationix/nvm
+	branch = master
+[submodule "pyenv"]
+	path = .pyenv
+	url = https://github.com/yyuu/pyenv
+	branch = master
+[submodule "rbenv"]
+	path = .rbenv
+	url = https://github.com/sstephenson/rbenv
+	branch = master
+
