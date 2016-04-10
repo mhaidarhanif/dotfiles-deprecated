@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Setup symbolic links
 
 export dotfiles="$HOME/.dotfiles"
