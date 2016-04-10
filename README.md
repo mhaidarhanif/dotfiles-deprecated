@@ -19,7 +19,7 @@ Clone onto your home:
 
 Retrieve all submodules with shallow clone:
 
-    git submodule update --init --depth 1
+    git submodule update --init --recursive --depth 1
 
 ### Setup
 
