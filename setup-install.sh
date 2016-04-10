@@ -3,6 +3,13 @@
 Setup Installation
 ==================
 
+# tmp
+mkdir ~/tmp
+mkdir ~/tmpvim
+
+# tools
+sudo apt-get install unzip
+
 # git
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt-get install git git-lfs
