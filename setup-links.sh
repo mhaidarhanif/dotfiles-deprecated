@@ -13,7 +13,6 @@ gen .zsh
 gen .zshrc
 gen .zshrc.func
 gen .zshrc.server
-gen .zshrc.zni
 gen .aliases
 gen .aliases.local
 
@@ -40,7 +39,8 @@ gen .tmux.conf
 gen .tmux.conf.local
 gen .tmuxinator
 
-# asdf/node/python/ruby
+# brew/asdf/node/python/ruby
+gen .linuxbrew
 gen .asdf
 gen .nvm
 gen .npm
