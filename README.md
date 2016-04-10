@@ -1,7 +1,7 @@
 M Haidar Hanif dotfiles
-=======================
+======================
 
-Based on [thoughtbot dotfiles](https://github.com/thoughtbot/dotfiles)
+Heavily modified. Earlier based on [thoughtbot dotfiles](https://github.com/thoughtbot/dotfiles).
 
 Requirements
 ------------
@@ -13,10 +13,13 @@ Set zsh as your login shell:
 Install
 -------
 
-Clone onto your laptop:
+Clone onto your home:
 
-    git clone git://github.com/mhaidarh/dotfiles.git
+    git clone git://github.com/mhaidarh/dotfiles.git ~/.dotfiles
 
+Retrieve all submodules with shallow clone:
+
+    git submodule update --init --depth 1
 
 ### Setup
 
