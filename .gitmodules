@@ -43,3 +43,6 @@
 	url = https://github.com/sstephenson/rbenv
 	branch = master
 
+[submodule ".zplug"]
+	path = .zplug
+	url = https://github.com/b4b4r07/zplug

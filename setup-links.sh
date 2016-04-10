@@ -15,8 +15,10 @@ gen .zsh
 gen .zshrc
 gen .zshrc.func
 gen .zshrc.server
+gen .zplug
 gen .aliases
 gen .aliases.local
+gen .fzf.zsh
 
 # vim/atom
 gen .vim

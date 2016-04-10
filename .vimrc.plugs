@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'mhinz/vim-startify'
 Plug 'wakatime/vim-wakatime'
+Plug 'dietsche/vim-lastplace'
 
 " Plug 'airblade/vim-gitgutter'
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

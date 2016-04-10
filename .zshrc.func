@@ -1,3 +1,7 @@
+# --------------------------------
+# Extract various kinds of archive
+# --------------------------------
+
 extract() {
   if [ -f $1 ] ; then
     case $1 in
@@ -18,9 +22,11 @@ extract() {
   fi
 }
 
+# ---------------------------------------------------
 # A shortcut function that simplifies usage of xclip.
 # Accepts input from either stdin (pipe), or params.
 # ---------------------------------------------------
+
 cb() {
   local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
   # Check that xclip is installed.
@@ -52,50 +58,31 @@ cb() {
   fi
 }
 
+# ------------------------------------------------
 # Aliases / functions leveraging the cb() function
 # ------------------------------------------------
+
 # Copy contents of a file
 function copy() { cat "$1" | cb; }  
+
 # Copy SSH public key
 alias cssh="copy ~/.ssh/id_rsa.pub"  
+
 # Copy current working directory
 alias cwd="pwd | cb"  
+
 # Copy most recent command in bash history
 alias chs="cat $HISTFILE | tail -n 1 | cb"
 
-# percol history search
-function exists { which $1 &> /dev/null }
-if exists percol; then
-  function percol_select_history() {
-    local tac
-    exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-  }
-fi
+# ----------------------------------------------------------
+# vim-superman
+# Read Unix man pages faster than a speeding bullet with Vim
+# ----------------------------------------------------------
 
-# vim-superman | Read Unix man pages faster than a speeding bullet with Vim
-vman() {
-  vim -c "SuperMan $*"
-  if [ "$?" != "0" ]; then
-    echo "No manual entry for $*"
-  fi
-}
-
-# zsh-prompt-char
-function prompt_char {
-  git branch >/dev/null 2>/dev/null && echo '±' && return
-  hg root >/dev/null 2>/dev/null && echo '☿' && return
-  echo '$'
-}
-
-# git-branch function
-function git_branch {
-  BRANCH="$(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f3)"
-  if ! test -z $BRANCH; then
-    COL="%{$fg[green]%}" # Everything's fine
-    [[ $(git log origin/master..HEAD 2> /dev/null ) != "" ]] && COL="%{$fg[blue]%}" # We have changes to push
-    [[ $(git status --porcelain 2> /dev/null) != "" ]] && COL="%{$fg[red]%}" # We have uncommited changes
-    echo "$COL$BRANCH"
-  fi
-}
-
+#vman() {
+#  vim -c "SuperMan $*"
+#  if [ "$?" != "0" ]; then
+#    echo "No manual entry for $*"
+#  fi
+#}
 
