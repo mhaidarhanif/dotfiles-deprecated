@@ -12,7 +12,7 @@ windows:
   - assets:
       layout: main-vertical
       panes:
-        - j3 && vdi
+        - j3
         - j2 && cd z-watch
   - editor:
       layout: main-horizontal

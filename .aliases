@@ -16,6 +16,7 @@ alias -g L="| wc -l"
 alias -g ONE="| awk '{ print \$1}'"
 alias j="autojump"
 alias c="cd"
+alias cdd="cd -"
 alias u="umount"
 alias wc="wc -l"
 alias h="history"
@@ -23,6 +24,7 @@ alias to="touch"
 
 # Network
 alias ping="ping -c 5"
+alias pi="ping google.com"
 
 # Vim
 alias vim="vim -u ~/.vimrc"
@@ -32,8 +34,9 @@ alias v="vim"
 alias e="$EDITOR"
 alias v="$VISUAL"
 alias ge="gedit"
+alias atom="atom ."
 alias a="atom"
-alias sub="sublime"
+alias sub="sublime."
 alias nv="nvim"
 
 # File
@@ -41,8 +44,7 @@ alias nv="nvim"
 alias cp="rsync -ahPvW"
 # alias cp="cp -au"
 # alias cp="gcp"
-alias rm="trash"
-alias rmv="/bin/rm"
+# alias rm="gomi"
 
 # Search
 # alias f="find . -print | grep -i"
@@ -176,17 +178,4 @@ alias docker.cleanimages='docker rmi $(docker images --filter dangling=true --qu
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
-
-mkc() {
-  md "$@" && cd "$@"
-}
-
-mvc() {
-  mv "$@" && cd "$@"
-}
-
-# The Fuck
-# Magnificent app which corrects your previous console command
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias FUCK)"
 

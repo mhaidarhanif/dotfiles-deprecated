@@ -55,7 +55,7 @@ noremap <c-h> <c-w>h
 nnoremap ! :!
 
 " Auto-save a file when you leave insert mode
-autocmd InsertLeave * if expand('%') != '' | update | endif
+" autocmd InsertLeave * if expand('%') != '' | update | endif
 " inoremap jk <Esc>:w<cr>
 
 " Macro

@@ -1,14 +1,33 @@
 "*":
+  "activate-power-mode":
+    particles:
+      size: {}
+      spawnCount: {}
+      totalCount: {}
+    screenShake: {}
   "atom-beautify":
     _analyticsUserId: "3d038bf6-4cee-4919-bf7e-7249030de8c1"
-    beautifyEntireFileOnSave: false
+    cfml_end_with_newline: true
+    cfml_indent_inner_html: true
     css_align_assignments: true
     css_force_indentation: true
     css_newline_between_rules: true
     css_no_lead_zero: true
+    css_preserve_newlines: true
+    css_selector_separator_newline: true
+    html_end_with_newline: true
+    html_indent_inner_html: true
+    js_end_with_newline: true
+    js_eval_code: true
     js_jslint_happy: true
     js_keep_array_indentation: true
     js_keep_function_indentation: true
+    js_space_after_anon_function: true
+    js_space_before_conditional: false
+    js_unescape_strings: true
+    language_json_beautify_on_save: true
+    markdown_commonmark: true
+    muteUnsupportedLanguageErrors: true
     python_sort_imports: true
   "atom-material-ui":
     colors:
@@ -45,6 +64,9 @@
       "ex-mode"
       "vim-mode"
       "git-diff-details"
+    ]
+    packagesWithKeymapsDisabled: [
+      "refactor"
     ]
     themes: [
       "atom-material-ui"

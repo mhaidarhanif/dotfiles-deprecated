@@ -227,7 +227,7 @@ nosetests.xml
 *.class
 
 # Dart
-packages
+# packages
 .project
 pubspec.lock
 
@@ -450,13 +450,15 @@ tmp/**/*
 !tmp/cache/.keep
 zeus.json
 
-*.pdf
+# *.pdf
 *.mov
 *.mp4
 *.mp3
 
-*secret*
-*secret*/**
+#*secret*
+#*secret*/**
+*hidden*
+*hiddent*/**
 *.patch
 
 .bin

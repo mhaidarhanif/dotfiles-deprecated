@@ -5,8 +5,8 @@
 	name = M Haidar Hanif
 	email = git@mhaidarhanif.com
 	editor = vim
-	signingkey = mhaidarhanif@gmail.com
 	useconfigonly = true
+	signingkey = BED4373460DEF204
 [core]
 	pager = less -r
 	excludesfile = ~/.gitignore
@@ -34,8 +34,9 @@
 	delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
 	merge-branch = !git checkout master && git merge @{-1}
 	a  = !git add -A && git status
-	au = !git add -u && git status
 	aa = !git add -A && git add -u && git status
+	ac = !git add -A && git commit
+	au = !git add -u && git status
 	al = add --all
 	ap = add --patch
 	b  = branch
@@ -46,9 +47,11 @@
 	cl1 = clone --depth=1 --recursive
 	cm = commit -m
 	co = checkout
+	cod = co --
 	cb = checkout -b
 	cs = commit -S
 	d  = log --diff-filter=D -- $1
+	di = diff
 	diff = diff --color-words
 	h  = log
 	hist = log

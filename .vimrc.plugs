@@ -11,9 +11,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'wakatime/vim-wakatime'
 Plug 'dietsche/vim-lastplace'
+Plug 'EinfachToll/DidYouMean'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Plug 'airblade/vim-gitgutter'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'tpope/vim-obsession'
@@ -37,7 +38,6 @@ Plug 'dietsche/vim-lastplace'
 " Plug 'kien/ctrlp.vim'
 " Plug 'pbrisbin/vim-mkdir'
 " Plug 'scrooloose/syntastic'
-" Plug 'EinfachToll/DidYouMean'
 " Plug 'Z1MM32M4N/vim-superman'
 " Plug 'lervag/vimtex'
 " Plug 'vim-latex/vim-latex'
