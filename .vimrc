@@ -103,7 +103,7 @@ set autowriteall
 set cm=blowfish
 set backspace=2   " Backspace deletes like most programs in insert mode
 
-set history=100
+set history=500
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set laststatus=2  " Always display the status line

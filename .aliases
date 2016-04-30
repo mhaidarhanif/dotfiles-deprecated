@@ -52,6 +52,14 @@ alias f="find . -print | grep -i"
 alias gi="grep -inR"
 alias ag="ag -i"
 
+# arch
+alias install="sudo pacman -S"
+alias i="install"
+alias remove="sudo pacman -r"
+alias r="remove"
+alias yaourt="sudo yaourt -S"
+alias y="yaourt"
+
 # Programming
 alias py="python"
 alias python="~/.pyenv/shims/python"
@@ -117,21 +125,21 @@ if [ ! $(uname -s) = "Darwin" ]; then
 fi
 
 # apt-get
-alias add="sudo add-apt-repository -y"
-alias purge="sudo ppa-purge"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade"
-alias install="sudo apt-get install -y --force-yes"
-alias installf="sudo apt-get install -f --fix-missing"
-alias remove="sudo apt-get remove"
-alias autoremove="sudo apt-get autoremove"
-alias uninstall="sudo apt-get autoremove"
-alias hold="sudo apt-mark hold"
-alias search="sudo apt-cache search"
-alias i="install"
-alias un="uninstall"
-alias up="update"
-alias upg="upgrade"
+#alias add="sudo add-apt-repository -y"
+#alias purge="sudo ppa-purge"
+#alias update="sudo apt-get update"
+#alias upgrade="sudo apt-get upgrade"
+#alias install="sudo apt-get install -y --force-yes"
+#alias installf="sudo apt-get install -f --fix-missing"
+#alias remove="sudo apt-get remove"
+#alias autoremove="sudo apt-get autoremove"
+#alias uninstall="sudo apt-get autoremove"
+#alias hold="sudo apt-mark hold"
+#alias search="sudo apt-cache search"
+#alias i="install"
+#alias un="uninstall"
+#alias up="update"
+#alias upg="upgrade"
 
 # package
 alias dp="sudo dpkg -i"

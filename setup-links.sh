@@ -18,6 +18,12 @@ gen .zshrc.server
 gen .zplug
 gen .aliases
 gen .aliases.local
+ln -s ~/.zprezto/runcoms/zpreztorc ~/.zpreztorc
+ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
+ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
+ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
+ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
+# gen .fzf
 gen .fzf.zsh
 
 # vim/atom
