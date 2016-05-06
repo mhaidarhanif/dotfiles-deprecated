@@ -26,22 +26,23 @@ alias to="touch"
 alias ping="ping -c 5"
 alias pi="ping google.com"
 
-# Vim
-alias vim="vim -u ~/.vimrc"
+# Vim/NeoVim
+alias nv="vim"
+alias vim="vim"
 alias v="vim"
+alias vim="vim -u ~/.vimrc"
 
 # Edit
 alias e="$EDITOR"
 alias v="$VISUAL"
 alias ge="gedit"
-alias atom="atom ."
-alias a="atom"
+#alias atom="atom ."
+#alias a="atom"
 alias sub="sublime."
-alias nv="nvim"
 
 # File
 #alias cat="cat -b"
-alias cp="rsync -ahPvW"
+#alias cp="rsync -ahPvW"
 # alias cp="cp -au"
 # alias cp="gcp"
 # alias rm="gomi"
@@ -53,18 +54,13 @@ alias gi="grep -inR"
 alias ag="ag -i"
 
 # arch
-alias install="sudo pacman -S"
+alias install="pacaur -S"
 alias i="install"
-alias remove="sudo pacman -r"
+alias remove="pacaur -r"
 alias r="remove"
-alias yaourt="sudo yaourt -S"
-alias y="yaourt"
 
 # Programming
 alias py="python"
-alias python="~/.pyenv/shims/python"
-alias python2="~/.pyenv/shims/python2"
-alias python3="~/.pyenv/shims/python3"
 alias no="node"
 alias n="nvm use 0.10"
 alias npmi="npm install"

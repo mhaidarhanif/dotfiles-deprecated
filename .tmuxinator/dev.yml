@@ -1,17 +1,21 @@
 # ~/.tmuxinator/dev.yml
 
-name: Dev
-root: ~/all/repo
+name: dev
+root: ~/all/repo/mhaidarh/mhaidarh-repos
+
+# Runs before everything. Use it to start daemons etc.
+# pre: systemctl start docker
+
+# Specifies (by name or index) which window will be selected on project startup
+startup_window: home
 
 windows:
-  - tools:
-      layout: even-horizontal
+  - central:
+      layout: main-horizontal
       panes:
-        - #empty
-        - #empty
-  - editor:
-      layout: main-vertical
-      panes:
-        - #empty
-        - #empty
+        - # blank
+        - # blank
+  - editor: echo 'vim'
+  - docker: echo 'docker'
+  - extra: # blank
 

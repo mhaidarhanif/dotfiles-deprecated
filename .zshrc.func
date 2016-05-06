@@ -6,12 +6,14 @@
 # Shorcut to make or move directory/file
 # --------------------------------------
 
-mkc() {
-  md "$@" && cd "$@"
-}
-
-mvc() {
-  mv "$@" && cd "$@"
+function mkc {
+  if [ ! -n "$1" ]; then
+    echo "Enter a directory name"
+  elif [ -d $1 ]; then
+    echo "\`$1' already exists"
+  else
+    mkdir $1 && cd $1
+  fi
 }
 
 # --------------------------------

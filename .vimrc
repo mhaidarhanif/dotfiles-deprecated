@@ -13,16 +13,12 @@ set ff=unix
 " Copy
 " vmap <C-c> "+y
 
-" Skip Python
-let g:python_host_skip_check=1
-let g:loaded_python3_provider=1
-
 " Searching
 set rtp+=~/.fzf
 
 " Editing
-" set paste
-" set pastetoggle=<F10>
+set paste
+set pastetoggle=<F10>
 
 " Leader
 let g:mapleader = " "
@@ -114,15 +110,21 @@ set hlsearch
 set showmode
 
 " Backup directories
-" set directory=~/tmpvim
-set backupdir=~/tmpvim
-set undodir=~/tmpvim
+" set directory=~/.tmpvim
+set backupdir=~/.tmpvim
+set undodir=~/.tmpvim
 set swapfile
 set backup
 set writebackup
 set undofile
 " set nobackup
 " set nowritebackup
+
+" colors
+" Access colors present in 256 colorspace
+" set background=dark
+" let base16colorspace=256
+" colorscheme base16-default
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -134,20 +136,6 @@ set undofile
 set number
 set numberwidth=5
 nnoremap <F2> :set nonumber!<CR>
-
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"

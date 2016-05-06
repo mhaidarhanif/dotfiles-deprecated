@@ -4,8 +4,8 @@ Setup Installation
 ==================
 
 # tmp
-mkdir ~/tmp
-mkdir ~/tmpvim
+mkdir ~/.tmp
+mkdir ~/.tmpvim
 
 # tools
 # install unzip

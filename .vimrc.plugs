@@ -8,13 +8,13 @@ filetype off
 " call vundle#rc()
 call plug#begin('~/.vim/plugged')
 
-Plug 'mhinz/vim-startify'
-Plug 'wakatime/vim-wakatime'
+Plug 'chriskempson/base16-vim'
 Plug 'dietsche/vim-lastplace'
 Plug 'EinfachToll/DidYouMean'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Plug 'airblade/vim-gitgutter'
+" Plug 'mhinz/vim-startify'
+" Plug 'wakatime/vim-wakatime'
 " Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'tpope/vim-obsession'
@@ -30,7 +30,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'tmux-plugins/vim-tmux'
 " Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
 " Plug 'flazz/vim-colorschemes'
-" Plug 'chriskempson/base16-vim'
 " Plug 'tpope/vim-endwise'
 " Plug 'tpope/vim-surround'
 " Plug 'christoomey/vim-run-interactive'
