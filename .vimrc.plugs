@@ -1,4 +1,5 @@
 if &compatible
+
   set nocompatible
 end
 
@@ -12,29 +13,27 @@ Plug 'chriskempson/base16-vim'
 Plug 'dietsche/vim-lastplace'
 Plug 'EinfachToll/DidYouMean'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'wincent/Command-T'
+Plug 'kien/ctrlp.vim'
 
 " Plug 'mhinz/vim-startify'
 " Plug 'wakatime/vim-wakatime'
-" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'tpope/vim-obsession'
 " Plug 'tpope/vim-fugitive'
 " Plug 'easymotion/vim-easymotion'
 " Plug 'wincent/terminus'
-" Plug 'wincent/Command-T'
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/vim-easy-align'
 " Plug 'Shougo/unite.vim'
 " Plug 'haya14busa/incsearch.vim'
 " Plug 'kopischke/vim-stay'
 " Plug 'tmux-plugins/vim-tmux'
-" Plug 'daylerees/colour-schemes', { 'rtp': 'vim/' }
-" Plug 'flazz/vim-colorschemes'
 " Plug 'tpope/vim-endwise'
 " Plug 'tpope/vim-surround'
 " Plug 'christoomey/vim-run-interactive'
 " Plug 'danro/rename.vim'
-" Plug 'kien/ctrlp.vim'
 " Plug 'pbrisbin/vim-mkdir'
 " Plug 'scrooloose/syntastic'
 " Plug 'Z1MM32M4N/vim-superman'
@@ -43,22 +42,16 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Plug 'LaTeX-Box-Team/LaTeX-Box'
 " Plug 'xuhdev/vim-latex-live-preview'
 " Plug 'slim-template/vim-slim'
-" Plug 'thoughtbot/vim-rspec'
 " Plug 'vim-scripts/matchit.zip'
 " Plug 'vim-scripts/ctags.vim'
 " Plug 'vim-scripts/tComment'
 " Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'jaxbot/semantic-highlight.vim'
-" Plug 'jaxbot/github-issues.vim'
 " Plug 'jaxbot/browserlink.vim'
 " Plug 'nathanaelkane/vim-indent-guides'
-" vim-stay | Make Vim persist editing state without fuss
 " Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] }
 " Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' } " A simple Vimscript test framework
-" Plug 'kylef/apiblueprint.vim'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 " Plug 'Yggdroot/indentLine'
 
 call plug#end()

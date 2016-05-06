@@ -27,7 +27,6 @@ language-babel
 language-cjsx
 language-diff
 language-gherkin
-language-go
 language-javascript-jsx
 language-mongodb
 language-swift
@@ -51,9 +50,4 @@ tool-bar-almighty
 tool-bar-main
 tree-view-git-status
 vector-syntax
-vim-mode
-vue-autocomplete
-vue-format
-wakatime
 zentabs
-

@@ -10,12 +10,6 @@ set nocompatible
 " Set to Linux line endings
 set ff=unix
 
-" Copy
-" vmap <C-c> "+y
-
-" Searching
-set rtp+=~/.fzf
-
 " Editing
 set paste
 set pastetoggle=<F10>
@@ -55,7 +49,7 @@ nnoremap ! :!
 " inoremap jk <Esc>:w<cr>
 
 " Macro
-nnoremap <Space> @d
+" nnoremap <Space> @d
 " nnoremap <Space> @q
 
 noremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
@@ -69,21 +63,18 @@ inoremap jk <ESC>
 let mapleader = ","
 
 " Force save read-only files with :w!! or :sudow
-" cmap w!! %!sudo tee > /dev/null %
-" cnoremap sudow w !sudo tee % > /dev/null
+cmap w!! %!sudo tee > /dev/null %
+cnoremap sudow w !sudo tee % > /dev/null
 
 " NERDTree
+map <C-z> :NERDTreeToggle<CR>
+map <c-l> :tabn<cr>
+map <c-h> :tabp<cr>
+map <c-n> :tabnew<cr>
+" autocmd StdinReadPre * let s:std_in=1
 " autocmd vimenter * NERDTree
-"map <C-z> :NERDTreeToggle<CR>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " autocmd VimEnter * if !argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" map <c-l> :tabn<cr>
-" map <c-h> :tabp<cr>
-" map <c-n> :tabnew<cr>
-
-" ctrlP
-" set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Explorer mode
 "let g:netrw_liststyle=3
@@ -98,7 +89,6 @@ set autowriteall
 
 set cm=blowfish
 set backspace=2   " Backspace deletes like most programs in insert mode
-
 set history=500
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
@@ -149,11 +139,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" vim-rspec mappings
-" nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-" nnoremap <Leader>s :call RunNearestSpec()<CR>
-" nnoremap <Leader>l :call RunLastSpec()<CR>
-
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
@@ -169,12 +154,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" Automatically reload config
-"augroup myvimrc
-"  au!
-"  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-"augroup END
 
 " Easy block selection with mouse
 " noremap <M-LeftMouse> <4-LeftMouse>
