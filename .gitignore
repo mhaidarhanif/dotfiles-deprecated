@@ -1,9 +1,12 @@
-# mhaidarh's .gitignore
-# https://gist.github.com/mhaidarh/5170182
+# =======================
+# Super Global .gitignore
+# =======================
 
-############
+# Based on https://github.com/github/gitignore
+
+# ----------
 # Git Common
-############
+# ----------
 
 !*/
 
@@ -118,9 +121,9 @@ tramp
 # SASS
 *.sass-cache
 
-#################
-# Git Programming
-#################
+# -----------
+# Programming
+# -----------
 
 # C
 ## Object files
@@ -433,11 +436,9 @@ textpattern/
 HISTORY.txt
 README.txt
 
-# https://github.com/github/gitignore
-
-##########
-# Extras #
-##########
+# ------
+# Extras
+# ------
 
 *.sw[nop]
 .bundle
@@ -449,19 +450,15 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 zeus.json
+*.patch
+.bin
+.git-hub/cache
+.sdkman
 
 # *.pdf
 *.mov
 *.mp4
 *.mp3
 
-#*secret*
-#*secret*/**
 *hidden*
-*hiddent*/**
-*.patch
-
-.bin
-.git-hub/cache
-.sdkman
 

@@ -17,7 +17,17 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'wincent/Command-T'
 Plug 'kien/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Raimondi/delimitMate'
+Plug 'Valloric/YouCompleteMe'
+Plug 'marijnh/tern_for_vim'
 
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'Yggdroot/indentLine'
+" Plug 'mhinz/vim-signify'
 " Plug 'mhinz/vim-startify'
 " Plug 'wakatime/vim-wakatime'
 " Plug 'tpope/vim-obsession'
@@ -49,10 +59,8 @@ Plug 'kien/ctrlp.vim'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'jaxbot/semantic-highlight.vim'
 " Plug 'jaxbot/browserlink.vim'
-" Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] }
 " Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' } " A simple Vimscript test framework
-" Plug 'Yggdroot/indentLine'
 
 call plug#end()
 

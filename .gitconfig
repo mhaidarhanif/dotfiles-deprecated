@@ -56,7 +56,7 @@
 	diff = diff --color-words
 	h  = log
 	hist = log
-	history = log
+	history = log --oneline --graph --decorate
 	l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ll = log --stat --abbrev-commit --show-signature
@@ -76,6 +76,7 @@
 	up = !git fetch origin && git rebase origin/master
 	amend  = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+	log = !git log --oneline --graph --decorate
 [color]
 	diff   = auto
 	status = auto
@@ -105,8 +106,8 @@
 	algorithm = histogram
 [multi]
 	groupbyoutput = 1
-[format]
-	pretty = oneline
+#[format]
+#	pretty = oneline
 [branch "master"]
 	rebase = true
 [branch]

@@ -1,6 +1,5 @@
 alias j1="jc credentials"
-alias j2="jc videos"
-alias j22="jc videos-jp"
+alias j2="jc videos/z-watch"
 alias j3="jc data"
 alias j4="jc hazeorid-base"
 alias j5="jc satellid-base"

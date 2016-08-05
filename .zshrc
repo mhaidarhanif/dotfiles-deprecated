@@ -10,10 +10,11 @@ fi
 # Customize all configin separated files
 # Except for some
 
+PATH="$PATH:/root/.gem/ruby/2.3.0/bin"
+
 # ------------------------------------------------------------
 # Fuzzy file finder
 # ------------------------------------------------------------
-
 # Install via zplug firsit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #[[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"

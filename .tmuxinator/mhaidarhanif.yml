@@ -13,11 +13,10 @@ windows:
       layout: main-vertical
       panes:
         - j3
-        - j2 && cd z-watch
+        - j2
   - editor:
-      layout: main-horizontal
+      layout: main-vertical
       panes:
-        - # blank
-        - # blank
-  - audio
+        - jc hacktiv8/briefing
+        - jc hacktiv8/activities
 

@@ -6,16 +6,17 @@ set nocompatible
 "augroup vimrc
 "  autocmd!
 "augroup END
+filetype plugin on
 
 " Set to Linux line endings
 set ff=unix
 
 " Editing
-set paste
+"set paste
 set pastetoggle=<F10>
 
 " Leader
-let g:mapleader = " "
+let g:mapleader = ","
 
 " Mapping insert/normal
 imap ;; <Esc>
@@ -142,9 +143,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
 
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
-
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
@@ -166,12 +164,21 @@ nnoremap <C-l> <C-w>l
 " Select text with mouse scrolling
 " set mouse=a
 
+" Indentation
+set autoindent
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 " Vertical line indentation
 let g:indentLine_color_term = 239
 " let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_char = '│'
 set list lcs=tab:\|\ 
+
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
 
 " Protect large files from sourcing and other overhead.
 " Files become read only
@@ -198,6 +205,11 @@ let g:syntastic_javascript_eslint_args = '--reporter=compact'
 let g:syntastic_javascript_checkers = ['eslint']
 " autocmd bufwritepost *.js silent !standard % --format
 set autoread
+
+" YouCompleteMe
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
 
 " Local config
 " if filereadable($HOME . "/.vimrc.local")
