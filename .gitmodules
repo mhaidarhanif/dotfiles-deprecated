@@ -42,10 +42,9 @@
 	path = .rbenv
 	url = https://github.com/sstephenson/rbenv
 	branch = master
-
 [submodule ".zplug"]
 	path = .zplug
 	url = https://github.com/b4b4r07/zplug
 [submodule ".fzf"]
 	path = .fzf
-	url = git://github.com/junegunn/fzf.git
+	url = https://github.com/junegunn/fzf

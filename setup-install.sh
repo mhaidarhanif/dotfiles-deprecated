@@ -7,13 +7,10 @@ Setup Installation
 mkdir ~/.tmp
 mkdir ~/.tmpvim
 
-# tools
-# install unzip
-
 # git
 # curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-# sudo apt-get install git git-lfs
-# git submodule update --init --recursive --depth 1
+# install git git-lfs
+git submodule update --init --recursive
 
 # zsh
 #setopt EXTENDED_GLOB
@@ -21,17 +18,20 @@ mkdir ~/.tmpvim
 #  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 #done
 
+# tools
+# install unzip
+
 # node
 # .nvm
-nvm install v4
+# nvm install v4
 
 # python
 # .pyenv
-pyenv global system
+# pyenv global system
 
 # ruby
 # .rbenv
-rbenv install 2.3.0
+# rbenv install 2.3.0
 
 # go
 
@@ -41,7 +41,7 @@ rbenv install 2.3.0
 # install nginx
 
 # tmux
-install tmux
+# install tmux
 
 # sdkman
 # export SDKMAN_DIR="$dotfiles/.sdkman" && curl -s get.sdkman.io | bash

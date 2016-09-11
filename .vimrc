@@ -217,9 +217,9 @@ set completeopt-=preview
 " endif
 
 " Extension config
-if filereadable($HOME . "/.vimrc.plugs")
-  source ~/.vimrc.plugs
-endif
+"if filereadable($HOME . "/.vimrc.plugs")
+"  source ~/.vimrc.plugs
+"endif
 
 " Snippets config
 " if filereadable($HOME . "/.vimrc.snippets")
