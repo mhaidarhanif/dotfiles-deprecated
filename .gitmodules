@@ -37,3 +37,9 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf
+[submodule ".zplug"]
+	path = .zplug
+	url = https://github.com/zplug/zplug
+[submodule ".vim"]
+	path = .vim
+	url = https://github.com/mhaidarh/dotvim/
