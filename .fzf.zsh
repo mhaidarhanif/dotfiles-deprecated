@@ -1,20 +1,20 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */home/mhaidarh/.fzf/bin* ]]; then
-  export PATH="$PATH:/home/mhaidarh/.fzf/bin"
+if [[ ! "$PATH" == *~/.fzf/bin* ]]; then
+  export PATH="$PATH:~/.fzf/bin"
 fi
 
 # Man path
 # --------
-if [[ ! "$MANPATH" == */home/mhaidarh/.fzf/man* && -d "/home/mhaidarh/.fzf/man" ]]; then
-  export MANPATH="$MANPATH:/home/mhaidarh/.fzf/man"
+if [[ ! "$MANPATH" == *~/.fzf/man* && -d "~/.fzf/man" ]]; then
+  export MANPATH="$MANPATH:~/.fzf/man"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/home/mhaidarh/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "~/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/home/mhaidarh/.fzf/shell/key-bindings.zsh"
+source "~/.fzf/shell/key-bindings.zsh"
 
