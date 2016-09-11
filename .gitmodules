@@ -14,10 +14,6 @@
 	path = git-radar
 	url = https://github.com/michaeldfallen/git-radar
 	branch = master
-[submodule "dotvim"]
-	path = .vim
-	url = https://github.com/mhaidarh/dotvim
-	branch = master
 [submodule "asdf"]
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf
@@ -38,9 +34,6 @@
 	path = .rbenv
 	url = https://github.com/sstephenson/rbenv
 	branch = master
-[submodule ".zplug"]
-	path = .zplug
-	url = https://github.com/b4b4r07/zplug
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf
