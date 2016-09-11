@@ -81,13 +81,13 @@ cb() {
 # ------------------------------------------------
 
 # Copy contents of a file
-function copy() { cat "$1" | cb; }  
+function copy() { cat "$1" | pbcopy; }  
 
 # Copy SSH public key
 alias cssh="copy ~/.ssh/id_rsa.pub"  
 
 # Copy current working directory
-alias cwd="pwd | cb"  
+alias cwd="pwd | pbcopy"  
 
 # Copy most recent command in bash history
 alias chs="cat $HISTFILE | tail -n 1 | cb"

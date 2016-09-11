@@ -45,7 +45,6 @@
 	cv = commit -v
 	cl = clone --recursive
 	cl1 = clone --depth=1 --recursive
-	clone = clone --shallow
 	cm = commit -m
 	co = checkout
 	cod = co --

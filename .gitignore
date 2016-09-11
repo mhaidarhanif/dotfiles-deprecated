@@ -63,6 +63,7 @@ Session.vim
 .netrwhist
 *~
 .vim/editorconfig*
+init.vim
 
 # atom
 !.atom/

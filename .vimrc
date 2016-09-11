@@ -88,7 +88,7 @@ au FocusLost * :wa         " Always autosave everything
 au FocusLost * silent! wa  " Ignore warnings from untitled buffers
 set autowriteall
 
-set cm=blowfish
+set cm=blowfish2
 set backspace=2   " Backspace deletes like most programs in insert mode
 set history=500
 set ruler         " show the cursor position all the time
