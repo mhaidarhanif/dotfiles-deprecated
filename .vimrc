@@ -212,17 +212,17 @@ let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
 " Local config
-" if filereadable($HOME . "/.vimrc.local")
-"  source ~/.vimrc.local
-" endif
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
 
 " Extension config
-"if filereadable($HOME . "/.vimrc.plugs")
-"  source ~/.vimrc.plugs
-"endif
+if filereadable($HOME . "/.vimrc.plugs")
+  source ~/.vimrc.plugs
+endif
 
 " Snippets config
-" if filereadable($HOME . "/.vimrc.snippets")
-"  source ~/.vimrc.snippets
-" endif
+if filereadable($HOME . "/.vimrc.snippets")
+  source ~/.vimrc.snippets
+endif
 
