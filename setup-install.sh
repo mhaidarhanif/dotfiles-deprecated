@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-Setup Installation
-==================
+# Setup Installation
+# ==================
 
 # tmp
 mkdir ~/.tmp

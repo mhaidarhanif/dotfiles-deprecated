@@ -18,10 +18,6 @@
 	path = .vim
 	url = https://github.com/mhaidarh/dotvim
 	branch = master
-[submodule "linuxbrew"]
-	path = .linuxbrew
-	url = https://github.com/Linuxbrew/linuxbrew
-	branch = master
 [submodule "asdf"]
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf

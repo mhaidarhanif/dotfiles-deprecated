@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-# Setup symbolic links
+# Setup Symbolic Links
+# ====================
 
 export dotfiles="$HOME/.dotfiles"
 
@@ -23,7 +24,7 @@ ln -s ~/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s ~/.zprezto/runcoms/zlogout ~/.zlogout
 ln -s ~/.zprezto/runcoms/zprofile ~/.zprofile
 ln -s ~/.zprezto/runcoms/zshenv ~/.zshenv
-# gen .fzf
+gen .fzf
 gen .fzf.zsh
 
 # vim/atom
@@ -50,7 +51,7 @@ gen .tmux.conf.local
 gen .tmuxinator
 
 # brew/asdf/node/python/ruby
-gen .linuxbrew
+# gen .linuxbrew
 gen .asdf
 gen .nvm
 gen .npm
