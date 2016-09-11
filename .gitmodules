@@ -6,10 +6,6 @@
 	path = .asdf
 	url = https://github.com/asdf-vm/asdf
 	branch = master
-[submodule "betty"]
-	path = betty
-	url = https://github.com/pickhardt/betty
-	branch = master
 [submodule "nvm"]
 	path = .nvm
 	url = https://github.com/creationix/nvm
