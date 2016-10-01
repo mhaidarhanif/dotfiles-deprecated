@@ -83,7 +83,7 @@ init.vim
 *.pydevproject
 .project
 *.metadata
-bin/**
+#bin/**
 tmp/**
 tmp/**/*
 *.tmp
@@ -178,7 +178,7 @@ install_manifest.txt
 ## Java class files
 *.class
 ## generated files
-bin/
+#bin/
 gen/
 ## Local configuration file (sdk path, etc)
 local.properties
@@ -205,7 +205,7 @@ dist
 build
 eggs
 parts
-bin
+#bin
 var
 sdist
 develop-eggs
@@ -462,4 +462,5 @@ zeus.json
 *.mp3
 
 *hidden*
+*temp*
 

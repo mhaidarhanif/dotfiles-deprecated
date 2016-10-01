@@ -10,15 +10,17 @@ fi
 # ------------------------------------------------------------
 # Fuzzy file finder
 # ------------------------------------------------------------
+
 # Install via zplug firsit
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#[[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
+
+# ------------------------------------------------------------
+# PM2
+# ------------------------------------------------------------
 
 ###-begin-pm2-completion-###
-### credits to npm for the completion file model
-#
 # Installation: pm2 completion >> ~/.bashrc  (or ~/.zshrc)
-#
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
 COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}

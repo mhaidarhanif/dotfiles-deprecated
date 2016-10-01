@@ -27,7 +27,7 @@ alias ping="ping -c 5"
 alias pi="ping google.com"
 
 # Vim/NeoVim
-alias nv="vim"
+alias nv="nvim"
 alias vim="vim"
 alias v="vim"
 alias vim="vim -u ~/.vimrc"
@@ -36,16 +36,16 @@ alias vim="vim -u ~/.vimrc"
 alias e="$EDITOR"
 alias v="$VISUAL"
 alias ge="gedit"
-#alias atom="atom ."
-#alias a="atom"
+alias atom="atom ."
+alias a="atom"
 alias sub="sublime."
 
 # File
-#alias cat="cat -b"
-#alias cp="rsync -ahPvW"
-# alias cp="cp -au"
-# alias cp="gcp"
-# alias rm="gomi"
+alias cat="cat"
+alias cp="rsync -ahPvW"
+alias cp="cp -au"
+alias cp="gcp"
+#alias rm="gomi"
 
 # Search
 # alias f="find . -print | grep -i"
@@ -57,6 +57,12 @@ alias ag="ag -i"
 alias install="pacaur -S"
 alias i="install"
 alias remove="pacaur -r"
+alias r="remove"
+
+# mac
+alias install="brew install"
+alias i="install"
+alias remove="brew uninstall"
 alias r="remove"
 
 # Programming
@@ -143,14 +149,24 @@ alias dpr="sudo dpkg -r"
 PIP_DOWNLOAD_CACHE="~/.pipcache"
 PIP_USE_MIRRORS=true
 
+# rm
+alias del="trash"
+alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
+
 # tmux
 alias t="tmux"
 alias ta="tmux attach -t"
 alias tx="tmuxinator"
 alias txp="tmuxp load"
 
+# sql
+
 # server
 alias server="live-server"
+
+# thefuck
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias wow)"
 
 # Docker
 #alias docker.images="docker images" # list all images

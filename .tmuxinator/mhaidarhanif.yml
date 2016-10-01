@@ -5,18 +5,14 @@ root: ~/
 
 windows:
   - home:
-      layout: main-horizontal
-      panes:
-        - # blank
-        - j1
   - assets:
       layout: main-vertical
       panes:
-        - j3
-        - j2
+        - # blank
+        - # blank
   - editor:
       layout: main-vertical
       panes:
-        - jc hacktiv8
-        - jc hacktiv8
+        - # blank
+        - # blank
 

@@ -30,7 +30,7 @@ cabbrev ew :wq
 cabbrev qw :wq
 
 " Clipboard
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Switch windows with two keystrokes
 noremap <c-j> <c-w>j

@@ -60,11 +60,10 @@
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ll = log --stat --abbrev-commit --show-signature
 	lo = log --oneline --graph --decorate
-	push  = push --tags
+	push  = !git pull && git push --tags
 	p  = push
 	pf = push -f
 	pu = push -u
-	pull = up
 	pr = !hub pull-request
 	r  = !git ls-files -z --deleted | xargs -0 git rm
 	re = reset HEAD
@@ -113,17 +112,17 @@
 	autosetuprebase = always
 [hub]
 	protocol = https
-
-# - http://git-scm.com
-# - http://git-legit.org
-# - https://github.com/github/gitignore
-# - https://help.github.com/articles/ignoring-files
-# - https://help.github.com/articles/dealing-with-line-endings
-# - http://gitimmersion.com
-# - http://oli.jp/2012/git-powerup
-# - http://blog.blindgaenger.net/advanced_git_aliases.html
-
 [filter "lfs"]
 	smudge = git-lfs smudge %f
 	required = true
 	clean = git-lfs clean %f
+
+# http://git-scm.com
+# http://git-legit.org
+# https://github.com/github/gitignore
+# https://help.github.com/articles/ignoring-files
+# https://help.github.com/articles/dealing-with-line-endings
+# http://gitimmersion.com
+# http://oli.jp/2012/git-powerup
+# http://blog.blindgaenger.net/advanced_git_aliases.html
+
