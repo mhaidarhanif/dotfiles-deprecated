@@ -150,7 +150,8 @@ PIP_DOWNLOAD_CACHE="~/.pipcache"
 PIP_USE_MIRRORS=true
 
 # rm
-alias del="trash"
+alias delete="trash"
+alias del="delete"
 alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
 
 # tmux

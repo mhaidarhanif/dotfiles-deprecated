@@ -1,0 +1,29 @@
+# ~/.tmuxinator/spa.yml
+
+name: spa
+root: ~/all/repo/hacktiv8
+
+# Specifies (by name or index) which window will be selected on project startup
+startup_window: den
+
+windows:
+  - home:
+      root: ~/
+      panes:
+        - # blank
+  - den:
+      root: hacktiv8-phases
+      layout: main-vertical
+      panes:
+        - # blank
+        - git status
+  - query: codes/super-jquery/todomvc/examples/jquery
+  - ui: codes/super-jquery/super-jqueryui-demo
+  - vue:
+      root: codes/super-vue
+      layout: main-vertical
+      panes:
+        - cd super-vue-todo-demo
+        - cd super-vue-todo-cool-demo
+  - react:
+      root: codes/super-react/super-react-semanticui-demo/client

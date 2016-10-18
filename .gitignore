@@ -405,13 +405,14 @@ lib-cov
 *.gz
 #.nvm
 .npm
-,npmrc
+.npmrc
 pids
 logs
 results
 npm-debug.log
 node_modules
 bower_components
+yarn.lock
 
 # Maven
 target/

@@ -3,7 +3,7 @@
 # =============
 
 # --------------------------------------
-# Shorcut to make or move directory/file
+# mkc: Shorcut to make or move directory/file
 # --------------------------------------
 
 function mkc {
@@ -13,6 +13,20 @@ function mkc {
     echo "\`$1' already exists"
   else
     mkdir $1 && cd $1
+  fi
+}
+
+# --------------------------------------
+# gclc: Shorcut to git clone then cd to it
+# --------------------------------------
+
+function gclc {
+  if [ ! -n "$2" ]; then
+    echo "Enter a directory name"
+  elif [ -d $2 ]; then
+    echo "\`$2' already exists"
+  else
+    git clone $1 $2 && cd $2
   fi
 }
 

@@ -31,4 +31,4 @@ windows:
       panes:
         - cd arctic-fox-2016
         - cd phase-2-codes
-  - extra: cd codes
+  - super: cd codes
