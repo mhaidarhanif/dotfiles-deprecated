@@ -68,7 +68,6 @@ alias r="remove"
 # Programming
 alias py="python"
 alias no="node"
-alias n="nvm use 0.10"
 alias npmi="npm install"
 alias npmig="npm install -g"
 
@@ -163,6 +162,7 @@ alias txp="tmuxp load"
 # sql
 
 # server
+alias live="live-server"
 alias server="live-server"
 
 # thefuck

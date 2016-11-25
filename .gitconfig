@@ -59,8 +59,8 @@
 	l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar'
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ll = log --stat --abbrev-commit --show-signature
-	lo = log --oneline --graph --decorate
-	push  = !git pull && git push --tags
+        lo = log --oneline --graph --decorate
+	push  = !git pull && git push
 	p  = push
 	pf = push -f
 	pu = push -u
@@ -85,7 +85,7 @@
 	default = simple
 [merge]
 	ff = true
-	tool = meld
+	tool = p4merge
 [include]
 	path = .gitconfig.local
 [commit]
@@ -126,3 +126,8 @@
 # http://oli.jp/2012/git-powerup
 # http://blog.blindgaenger.net/advanced_git_aliases.html
 
+[mergetool]
+	keepTemporaries = false
+	prompt = false
+[diff "image"]
+	command = ~/bin/git-imgdiff

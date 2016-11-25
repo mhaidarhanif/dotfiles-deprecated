@@ -1,7 +1,7 @@
 # ~/.tmuxinator/work.yml
 
 name: work
-root: ~/all/repo/hacktiv8
+root: ~/
 
 # Runs before everything. Use it to start daemons etc.
 #pre:
@@ -14,21 +14,20 @@ root: ~/all/repo/hacktiv8
 startup_window: den
 
 windows:
-  - home:
-      root: ~/
-      layout: main-horizontal
-      panes:
-        - # blank
-        - # blank
+  - home: #
   - den:
       root: ~/all/repo/hacktiv8/hacktiv8-phases
       layout: main-vertical
       panes:
         - # ./bin/serve.sh
         - git status
-  - codes:
+  - cross:
+      root: ~/all/repo/hacktiv8/cross-fox-2016
       layout: main-vertical
       panes:
-        - cd arctic-fox-2016
-        - cd phase-2-codes
-  - super: cd codes
+        - #
+        - #
+  - codes: cd  ~/all/repo/hacktiv8/phase-2-codes
+  - super-workshop: cd ~/all/repo/mhaidarh/codes/super-workshop
+  - super-full-stack: cd ~/all/repo/mhaidarh/codes/super-full-stack
+

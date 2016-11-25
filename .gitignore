@@ -39,7 +39,7 @@ Thumbs.db
 *.7z
 *.jar
 *.rar
-*.zip
+#*.zip
 *.gz
 *.bzip
 *.bz2
@@ -412,7 +412,7 @@ results
 npm-debug.log
 node_modules
 bower_components
-yarn.lock
+#yarn.lock
 
 # Maven
 target/
@@ -459,9 +459,10 @@ zeus.json
 
 # *.pdf
 *.mov
+*.mp5
 *.mp4
 *.mp3
 
 *hidden*
-*temp*
+*temp
 

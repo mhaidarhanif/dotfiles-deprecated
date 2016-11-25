@@ -15,12 +15,7 @@ fi
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # [[ -f "$HOME/.tnsrc" ]] && source "$HOME/.tnsrc"
 
-# ---
-# NVM
-# ---
-
-#export NVM_DIR="$HOME/.nvm"
-#. "$(brew --prefix nvm)/nvm.sh"
+export PATH="$PATH:$HOME/.npm/bin"
 
 # ------------------------------------------------------------
 # PM2

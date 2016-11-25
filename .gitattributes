@@ -1,6 +1,10 @@
-# Use with caution
+# git-lfs
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 # *.pdf filter=lfs diff=lfs merge=lfs -text
-# *.jpg filter=lfs diff=lfs merge=lfs -text
-# *.png filter=lfs diff=lfs merge=lfs -text
+
+# git-attributes
+*.gif diff=image
+*.jpg diff=image
+*.png diff=image
+

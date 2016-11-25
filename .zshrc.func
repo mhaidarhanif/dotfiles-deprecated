@@ -118,3 +118,16 @@ alias chs="cat $HISTFILE | tail -n 1 | cb"
 #  fi
 #}
 
+# ------
+# npm install autosave if no argument
+# ------
+
+function npmi() {
+  if [ -n "$1" ]
+  then
+    npm install --save "$1"
+  else
+    npm install
+  fi
+}
+
