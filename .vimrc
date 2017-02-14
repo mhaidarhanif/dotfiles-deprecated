@@ -226,3 +226,9 @@ if filereadable($HOME . "/.vimrc.snippets")
   source ~/.vimrc.snippets
 endif
 
+" crontab
+if $VIM_CRONTAB == "true"
+  set nobackup
+  set nowritebackup
+endif
+

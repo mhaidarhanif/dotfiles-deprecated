@@ -59,3 +59,6 @@ elif type compctl &>/dev/null; then
 fi
 ###-end-pm2-completion-###
 
+
+# added by travis gem
+[ -f /Users/mhaidarh/.travis/travis.sh ] && source /Users/mhaidarh/.travis/travis.sh

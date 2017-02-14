@@ -16,8 +16,7 @@ alias edl="echo '' > dl"
 alias vva="v ~/all/credentials/acter"
 alias vvd="v ~/all/videos/z-watch/dl"
 alias vvdx="v ~/all/videos/z-watch/dlx"
-alias vvdi="v ~/all/repo/mhaidarh/data/directory.md"
-alias vvdia="v ~/all/repo/mhaidarh/data/directory-add.md"
+alias vvdi="v ~/all/repo/mhaidarh/codes/bookmarks/bookmarks.json"
 
 alias td="tmux new -s default -n home"
 

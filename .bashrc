@@ -112,16 +112,17 @@ export PATH="$PATH:~/.bin"
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/agnium/.sdkman"
-[[ -s "/home/agnium/.sdkman/bin/sdkman-init.sh" ]] && source "/home/agnium/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ###-tns-completion-start-###
-if [ -f /home/agnium/.tnsrc ]; then 
-    source /home/agnium/.tnsrc 
+if [ -f ~/.tnsrc ]; then 
+    source ~/.tnsrc 
 fi
 ###-tns-completion-end-###
 
 
-
+# added by travis gem
+[ -f /Users/mhaidarh/.travis/travis.sh ] && source /Users/mhaidarh/.travis/travis.sh

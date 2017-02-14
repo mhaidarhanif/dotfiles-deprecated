@@ -1,5 +1,5 @@
 # Unix
-alias sudo="sudo "
+# alias sudo="sudo "
 alias s="source"
 alias p="pwd"
 alias tlf="tail -f"
@@ -14,13 +14,14 @@ alias -g G="| grep"
 alias -g M="| less"
 alias -g L="| wc -l"
 alias -g ONE="| awk '{ print \$1}'"
-alias j="autojump"
+alias aj="autojump"
 alias c="cd"
 alias cdd="cd -"
 alias u="umount"
 alias wc="wc -l"
 alias h="history"
 alias to="touch"
+alias crontab="VIM_CRONTAB=true crontab"
 
 # Network
 alias ping="ping -c 5"
@@ -42,9 +43,9 @@ alias sub="sublime."
 
 # File
 alias cat="cat"
-alias cp="rsync -ahPvW"
-alias cp="cp -au"
-alias cp="gcp"
+#alias cp="rsync -ahPvW"
+#alias cp="cp -au"
+#alias cp="gcp"
 #alias rm="gomi"
 
 # Search
@@ -64,6 +65,7 @@ alias install="brew install"
 alias i="install"
 alias remove="brew uninstall"
 alias r="remove"
+alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
 
 # Programming
 alias py="python"
@@ -165,16 +167,21 @@ alias txp="tmuxp load"
 alias live="live-server"
 alias server="live-server"
 
+# json
+alias j="json"
+alias pj="prettyjson"
+
 # thefuck
 eval "$(thefuck --alias)"
 eval "$(thefuck --alias wow)"
 
 # Docker
-#alias docker.images="docker images" # list all images
-#alias docker.ps="docker ps -a" # list all containers
-#alias docker.stop="docker stop $(docker ps -a -q)" # stop all containers
-#alias docker.clean='docker rm $(docker ps --no-trunc -aq)' # remove all containers
-#alias docker.cleanimages='docker rmi $(docker images --filter dangling=true --quiet)' # deletes all your downloaded images
+alias dps="docker ps -a" # list all containers
+alias dimages="docker images" # list all images
+alias dkill="docker kill"
+alias dstop="docker stop $(docker ps -a -q)" # stop all containers
+alias dclean='docker rm $(docker ps --no-trunc -aq)' # remove all containers
+alias dcleanimages='docker rmi $(docker images --filter dangling=true --quiet)' # deletes all your downloaded images
 
 # Meteor
 #alias m="meteor"

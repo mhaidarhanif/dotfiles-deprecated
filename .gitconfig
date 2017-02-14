@@ -8,14 +8,14 @@
 	useconfigonly = true
 	signingkey = BED4373460DEF204
 [core]
-	pager = less -r
+        # pager = diff-so-fancy | less --tabs=4 -RFX
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 	# autocrlf = input
 	# safecrlf = true
 	# quotepath = false
 [credential]
-	helper = store
+	helper = cache --timeout=14400
 [init]
 	# templatedir = ~/.git/templates
 [alias]
@@ -53,6 +53,7 @@
 	d  = log --diff-filter=D -- $1
 	di = diff
 	diff = diff --color-words
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	h  = log
 	hist = log
 	history = log --oneline --graph --decorate
@@ -113,9 +114,10 @@
 [hub]
 	protocol = https
 [filter "lfs"]
-	smudge = git-lfs smudge %f
 	required = true
-	clean = git-lfs clean %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 
 # http://git-scm.com
 # http://git-legit.org
@@ -131,3 +133,4 @@
 	prompt = false
 [diff "image"]
 	command = ~/bin/git-imgdiff
+

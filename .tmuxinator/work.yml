@@ -15,19 +15,9 @@ startup_window: den
 
 windows:
   - home: #
-  - den:
-      root: ~/all/repo/hacktiv8/hacktiv8-phases
-      layout: main-vertical
-      panes:
-        - # ./bin/serve.sh
-        - git status
-  - cross:
-      root: ~/all/repo/hacktiv8/cross-fox-2016
-      layout: main-vertical
-      panes:
-        - #
-        - #
-  - codes: cd  ~/all/repo/hacktiv8/phase-2-codes
-  - super-workshop: cd ~/all/repo/mhaidarh/codes/super-workshop
-  - super-full-stack: cd ~/all/repo/mhaidarh/codes/super-full-stack
+  - super: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js
+  - super-server: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js/servers/server-express
+  - super-test: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js/tests/test-chai
+  - bookmarks: cd ~/all/repo/mhaidarh/codes/bookmarks
+  - den: cd ~/all/repo/hacktiv8/hacktiv8-phases
 
