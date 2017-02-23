@@ -71,7 +71,13 @@ alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
 alias py="python"
 alias no="node"
 alias npmi="npm install"
+alias npmis="npm install -S"
+alias npmid="npm install -D"
 alias npmig="npm install -g"
+alias y="yarn"
+alias ya="yarn add"
+alias yr="yarn remove"
+alias yag="yarn global add"
 
 # Command Line
 alias betty="$HOME/.dotfiles/betty/main.rb"

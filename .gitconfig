@@ -134,3 +134,5 @@
 [diff "image"]
 	command = ~/bin/git-imgdiff
 
+[gui]
+	recentrepo = /Users/mhaidarh/All/repo/mhaidarh/codes/super-workshop/super-workshop-js

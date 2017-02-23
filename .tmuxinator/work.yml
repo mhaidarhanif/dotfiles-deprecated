@@ -15,9 +15,11 @@ startup_window: den
 
 windows:
   - home: #
+  - den: cd ~/all/repo/hacktiv8/hacktiv8-phases
   - super: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js
+  - super-jquery: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js/clients/client-jquery
+  - super-vue: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js/clients/client-vue
   - super-server: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js/servers/server-express
   - super-test: cd ~/all/repo/mhaidarh/codes/super-workshop/super-workshop-js/tests/test-chai
   - bookmarks: cd ~/all/repo/mhaidarh/codes/bookmarks
-  - den: cd ~/all/repo/hacktiv8/hacktiv8-phases
 
